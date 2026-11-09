@@ -1,0 +1,14 @@
+{
+    "versionCode":  10801,
+    "versionName":  "1.8.1",
+    "tag":  "v1.8.1",
+    "size":  264823,
+    "sha256":  "d1ec43e4524a37d25ea5aaf128431709765215a198179c1d0f939f865b3ef8b8",
+    "notes":  "## 1.8.1 · 更新不再怕网络\n\n这一版只改更新链路：国内网络、GitHub 被限速、某个镜像挂了，都不该让你装不上新版。\n\n### 发布侧\n\n- 每次发版多传一个**固定文件名**资产 `JingPing.apk`，于是\n  `https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk`\n  成了永远指向最新版的地址，换版本不用换 URL。\n- 同时在仓库根目录写一份 `update.json`（版本号、大小、sha256、说明、多个下载地址），推到 `main`。\n\n### 客户端\n\n- **清单 4 路并发**：`raw.githubusercontent.com` / `gh-proxy.com` / `cdn.jsdelivr.net` / `ghproxy.net` 同时请求，\n  取所有回答里 versionCode 最大的那个——这样哪怕 jsDelivr 缓存了旧文件，也不会把新版本吞掉。\n- **安装包自动换源**：清单里的下载地址按顺序尝试，超时、失败、被改写都会自动换下一个，进度卡片会显示「源 2/4」。\n- **sha256 校验**：下完先比哈希，再比包名和 versionCode；镜像站返回被替换的包会当场拦下并换源。\n- **自定义更新源**：内置源全挂时，可以把 `update.json` 放到自己的对象存储 / Gitee / 静态站，在设置里填地址。\n- **从安装包更新**：已经从电脑或网盘把 APK 弄到手机上，直接选文件安装，完全不依赖网络（会校验包名与版本）。\n\n### 实测（2026-11-09，上海电信）\n\n| 通道 | 清单 | 安装包 |\n| --- | --- | --- |\n| `raw.githubusercontent.com` | 675 ms | — |\n| `gh-proxy.com` | 509 ms | 493 ms |\n| `cdn.jsdelivr.net` | 848 ms | 不支持 release 资产 |\n| `ghproxy.net` | 3119 ms | 2158 ms |\n| `ghfast.top` | 超时 | 超时（仍作为第 4 个备用源保留，别的运营商可能通） |\n| 直连 `github.com` | — | 1079 ms |\n\n### 还没解决的\n\n- **真机仍未验证**：本轮只做编译 + 自测 + 静态校验，没有手机可测。\n- 首版发布后 `update.json` 才存在于 `main`，所以 1.8.1 自己这一次更新仍走旧的 GitHub API 通道；从 1.8.1 之后开始走多源清单。\n- 没有任何一种方案能保证 100% 连通；镜像站会挂，所以保留了「自定义源」和「本地安装」两个离线兜底。\n\n包名、签名、规则与统计口径不变，可覆盖安装。APK 258.6 KB / versionCode 10801。\n\n**完整变更**：https://github.com/MY-moss/jingping/compare/v1.8.0...v1.8.1\n",
+    "apks":  [
+                 "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+                 "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+                 "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+                 "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
+             ]
+}

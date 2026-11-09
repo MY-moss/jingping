@@ -7,7 +7,7 @@
 [![release](https://img.shields.io/github/v/release/MY-moss/jingping?style=flat-square&color=14624F&label=release)](https://github.com/MY-moss/jingping/releases/latest)
 [![downloads](https://img.shields.io/github/downloads/MY-moss/jingping/total?style=flat-square&color=14624F&label=downloads)](https://github.com/MY-moss/jingping/releases)
 [![android](https://img.shields.io/badge/Android-7.0%2B-14624F?style=flat-square&logo=android&logoColor=white)]()
-[![size](https://img.shields.io/badge/APK-%E7%BA%A6%20295%20KB-14624F?style=flat-square)]()
+[![size](https://img.shields.io/badge/APK-%E7%BA%A6%20315%20KB-14624F?style=flat-square)]()
 
 <br>
 
@@ -25,7 +25,7 @@
 
 ## ✨ 特点
 
-- **2152 条严格生效规则**，覆盖 676 个应用；规则库编译后 2935 条 / 749 个应用，开屏 / 全屏 / 局部 / 分段四类独立开关
+- **2110 条严格生效规则**，覆盖 676 个应用；规则库编译后 2935 条 / 749 个应用，开屏 / 全屏 / 局部 / 分段四类独立开关
 - **四页结构**：概览 / 战绩 / 规则 / 设置；首页支持经典 / 专注 / 紧凑三套样式
 - **战绩看得见**：30 天热力图、判准率、节省时间、误跳转与误报统计
 - **界面快照 + 观察模式**：误点可回放节点树，新规则可以先只看不点
@@ -34,7 +34,7 @@
 - **常用规则优先**：命中越多的规则排得越前，下次更快命中
 - **多源更新**：清单 4 路并发、安装包 6 源测速、sha256 校验
 - **反馈刚刚好**：半透明「angela吃掉了广告」气泡，可选短震
-- **轻量离线**：约 295 KB，无账号、无广告 SDK、不上传界面内容
+- **轻量离线**：约 315 KB，无账号、无广告 SDK、不上传界面内容
 
 ## ⬇️ 安装
 
@@ -48,7 +48,7 @@
 ## 🔄 更新
 
 - **1.5.0 起**：设置 → 关于与更新 → 检查更新，自动读取本仓库的最新 Release。
-- **1.9.6**：清单 4 路并发、安装包 6 源自动测速、sha256 校验；更新失败保留旧规则。
+- **1.9.8**：规则语义与点击结果确认修复；清单 4 路并发、安装包 6 源自动测速、sha256 校验；更新失败保留旧规则。
 - 更早的版本没有更新检查，需要手动安装一次 1.5.0。
 
 ## ❓ 常见问题
@@ -71,7 +71,7 @@
 - 无账号、无统计、无上报
 - 只读取当前界面的控件文字、描述和位置，用于匹配规则
 - 日志只保存在本机，可随时清空
-- 界面快照只存本机节点树，最多 12 份，不包含截图
+- 界面快照默认关闭；开启后只存本机节点树，最多 12 份，输入框/密码附近文字脱敏，不包含截图
 - 联网仅用于规则订阅和 GitHub 检查更新
 
 ## ⚠️ 免责声明

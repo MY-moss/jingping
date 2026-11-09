@@ -1,19 +1,80 @@
+<div align="center">
+
 # 净屏
 
-安卓开屏 / 弹窗广告自动跳过工具。**本仓库只用于发布 APK，不含源代码。**
+**开屏广告、弹窗广告，打开就没了。**
 
-## 下载
+[![release](https://img.shields.io/github/v/release/MY-moss/jingping?style=flat-square&color=12876F&label=release)](https://github.com/MY-moss/jingping/releases/latest)
+[![downloads](https://img.shields.io/github/downloads/MY-moss/jingping/total?style=flat-square&color=12876F&label=downloads)](https://github.com/MY-moss/jingping/releases)
+[![android](https://img.shields.io/badge/Android-7.0%2B-12876F?style=flat-square&logo=android&logoColor=white)]()
+[![size](https://img.shields.io/badge/APK-%E7%BA%A6%20200%20KB-12876F?style=flat-square)]()
 
-到 [Releases](https://github.com/MY-moss/jingping/releases/latest) 下载最新的 `JingPing-*.apk`。
+<br>
 
-## 安装
+<a href="https://github.com/MY-moss/jingping/releases/latest">
+  <img src="https://img.shields.io/badge/%E4%B8%8B%E8%BD%BD%E6%9C%80%E6%96%B0%E7%89%88-12876F?style=for-the-badge&logo=android&logoColor=white" alt="下载最新版" height="42">
+</a>
 
-1. 允许「安装未知来源应用」；
-2. 安装后打开净屏，按提示开启无障碍服务；
-3. Android 13+ 如果无障碍开关是灰的，去「应用信息 → 右上角三点 → 允许受限制的设置」。
+<br><br>
 
-## 说明
+<img src="./preview.png" width="100%" alt="净屏界面预览">
 
-- 支持 Android 7.0 及以上；
-- 完全离线运行，不登录、不上传界面内容；
-- App 内「检查更新」会读取本仓库的 Releases。
+</div>
+
+> 本仓库只发布 APK，**不包含源代码**。
+
+## ✨ 特点
+
+- **约 2000 条生效规则**，覆盖 728 个应用；开屏 / 全屏 / 局部 / 分段四类场景独立开关
+- **GKD 选择器引擎**：链式选择器、正则、多条件 AND、`vid`、`activityIds` 全支持
+- **按应用调控**：点进应用可逐条查看规则、单独关闭某一条，误点不必整包禁用
+- **常用规则优先**：命中越多的规则排得越前，下次更快命中
+- **反馈刚刚好**：半透明「angela吃掉了广告」气泡，可选短震
+- **轻量离线**：约 200 KB，无账号、无广告 SDK、不上传界面内容
+
+## ⬇️ 安装
+
+1. 下载最新的 `JingPing-*.apk`
+2. 允许「安装未知来源应用」并安装
+3. 打开净屏 → 开启无障碍服务
+4. 建议顺手关闭电池优化，并在系统里允许自启动 / 后台运行
+
+> Android 13+ 如果无障碍开关是灰的：应用信息 → 右上角三点 → 允许受限制的设置。
+
+## 🔄 更新
+
+- **1.5.0 起**：设置 → 关于与更新 → 检查更新，自动读取本仓库的最新 Release。
+- 更早的版本没有更新检查，需要手动安装一次 1.5.0。
+
+## ❓ 常见问题
+
+**广告还会加载吗？**
+
+会。净屏是「秒跳」：广告刚开始显示就被点掉，声音和画面基本来不及出现，但仍会消耗少量流量。想从源头拦截，可以配合私人 DNS（`dns.adguard-dns.com`）。
+
+**无障碍被系统关掉了？**
+
+设置 → 系统权限 → 后台保活指南。净屏在被关闭时会发一条通知，点通知即可回来重新开启。
+
+**不小心点错了？**
+
+设置 → 运行记录，看是哪条规则；再到 规则 → 按应用管理 → 点进应用，单独关掉那一条。
+
+## 🔒 隐私
+
+- 无账号、无统计、无上报
+- 只读取当前界面的控件文字、描述和位置，用于匹配规则
+- 日志只保存在本机，可随时清空
+- 联网仅用于规则订阅和 GitHub 检查更新
+
+## 📄 说明
+
+个人自用工具，与任何应用或公司无关。规则来自社区公开订阅，请在遵守当地法律和应用条款的前提下使用。
+
+---
+
+<div align="center">
+
+如果它帮你省下了几秒钟，点个 ⭐ 就好。
+
+</div>

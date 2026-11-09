@@ -1,16 +1,16 @@
 {
-    "versionCode":  10906,
-    "versionName":  "1.9.6",
-    "tag":  "v1.9.6",
-    "size":  301687,
-    "sha256":  "8976236a49c6ab25c1dd3895e9428c062aa0a6e7f06deb81d4fda8677654ef7b",
-    "notes":  "## 1.9.6 · 扫描加速与首次加载去重\n\n这轮没有加新界面，专门砍「每次跳过都要重复付的成本」。核心判断：规则匹配本身不慢，\n慢的是无障碍跨进程读属性，以及启动时把同一份 1MB 规则解析两遍。\n\n### 1. 节点属性按需读\n\n以前每个节点只要本包规则可能用到 text / desc / id，就三个属性全读一遍。\n但绝大多数节点都有文字，读完 text 就已经能判断它不是空白节点了。\n现在先读 text；只有 text 为空才继续读 desc，再为空才读 id。\n\n按一个 200 节点、七成节点有文字的界面估算，单次扫描的字段读取从约 600 次降到约 320 次。\n\n### 2. 规则扫描计划缓存\n\n每个应用的「规则表 + 每条规则的点击键 + 需要读哪些属性」只跟包名和规则库有关，\n现在缓存 2.5 秒。以前每次扫描都要重新拼 40 多个 `包名|选择器` 字符串、重新算属性掩码。\n\n### 3. 广告证据按节点缓存\n\n同一条低置信规则的闸门检查里，一个节点可能被父容器、兄弟节点反复看到。\n现在 `evidenceOf` 和「自己就写着关闭广告」都缓存在节点上，一次扫描内不重复归一化文本。\n另外把 `normLabel` 里每次调用都重新编译的两个正则改成静态 Pattern。\n\n### 4. 窗口枚举节流\n\n窗口内原来每 90ms 扫描一次就调一次 `getWindows()`。广告弹窗持续几秒，\n200ms 枚举一次足够接住，跨进程调用直接少一半以上。\n\n### 5. 首次加载不再解析两遍\n\n无障碍服务和界面可能同时触发首次加载，原来的 check-then-set 不是原子的，\n两个线程会各解析一遍预置规则。现在只给「加载守卫」加锁，解析本身仍在锁外，\n不会卡住正在扫描的匹配线程。\n\n### 6. 快照本身也减负\n\n快照只给有内容的节点、点击目标和它的祖先读坐标 / 可点状态；\n空白容器不再为回放付三次跨进程调用，也不再读 `visibleToUser`。\n\n### 7. 其它小项\n\n- 兜底关键词先做「跳 / 略 / 关 / skip」字面量预判，普通文案不再走归一化正则。\n- 类名匹配的 `.ClassName` 后缀只拼一次。\n- 节点树按预算一次分配，不再从 256 反复扩容到 1600。\n\n### 桌面基准\n\n`bench.ps1`（真实 2935 条规则 + 800 节点合成树）：解析约 190~320ms（受机器负载影响），\nprepare 约 10~15ms，规则匹配约 10~14ms/扫；预筛相对完整匹配仍有约 1.2~1.6x 提升。\n桌面绝对值不代表手机，手机上的主要收益来自上面减少的跨进程读取次数。\n\n### 自测\n\n桌面自测 **199 项全过**，HitTest 2935 条规则全过，误点样本仍全部判为「拦下」。\n\n### 下一步（需要真机数据才敢做）\n\n- `findAccessibilityNodeInfosByText` 快查：只对「单段、带文字提示」的规则走系统级文本查询，\n  其余规则仍走完整树，失败自动回落。能把整树遍历再砍一大截，但节点顺序和窗口语义\n  必须在真机上验证，不能拍脑袋上线。\n- 订阅更新 diff 预览与回滚。\n\n包名、签名、规则与统计口径不变，可覆盖安装。APK 294.6 KB / versionCode 10906。\n\n**完整变更**：https://github.com/MY-moss/jingping/compare/v1.9.5...v1.9.6\n",
-    "apks":  [
-                 "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.6.apk",
-                 "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.6.apk",
-                 "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-                 "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-                 "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-                 "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
-             ]
+  "versionCode": 10908,
+  "versionName": "1.9.8",
+  "tag": "v1.9.8",
+  "size": 322167,
+  "sha256": "6c070974f3d12e6d0f03ada92890a9d5b6baeb70ef20a5a9e372804a74adcf43",
+  "notes": "## 净屏 1.9.8\n\n本轮优先修判定安全和数据一致性，不增加新的联网层，也不引入第三方运行时。\n\n- 规则语义拆分 `matches` / `anyMatches` / `excludeMatches` / `excludeAllMatches`，多选择器点击最后一个目标，无法无损表达的规则不再静默放宽。\n- Activity 限制改为前缀匹配，Activity 未知时等待；补上 `resetMatch=match` 和共享 `actionCdKey` / `actionMaximumKey`。\n- 点击后做 900/2200ms 确认，正式跳过数只统计确认消失或界面切换；未确认动作单独保留。\n- 同一目标 1.2 秒幂等，避免多条规则轮流点击同一个广告。\n- 更新检查与测速支持取消；自动安装强制校验大小、SHA-256、包名、版本和签名，失败自动换源。\n- 订阅缓存改为 SHA-256 键和临时文件替换；超时或取消的旧任务不得覆盖缓存。\n- 备份升级到 schema v2，加入区域、熔断、白名单时间基准；快照默认关闭并脱敏输入框附近文字。\n- 低风险界面修正：辅助文字对比度、整行开关、无障碍标签和系统减少动效。\n\nAPK：约 315 KB，versionCode 10908，包名和签名保持不变。\n\n**验证边界（如实说明）**：桌面自测 226 项全过，2935 条规则回归通过，构建/签名/包名/versionCode 校验通过。当前环境没有真机或模拟器连接，因此尚未声称真实广告、输入法、后台保活、更新安装和旋转场景已验证。请在真机上重点检查：开屏广告、QQ/B站/小红书样本、搜索“广告/跳过广告”、误点标记、误跳转回退、更新进度与换源、备份恢复、后台保活。\n",
+  "apks": [
+    "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.8.apk",
+    "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.8.apk",
+    "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+    "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+    "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+    "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
+  ]
 }

@@ -1,0 +1,92 @@
+净屏个人学习使用许可 1.0
+JingPing Personal Use License 1.0
+
+版权所有 (c) 2026 净屏（JingPing）作者。保留所有权利。
+Copyright (c) 2026 The JingPing Authors. All rights reserved.
+
+本许可适用于本仓库中的源代码、界面资源、文档与自行构建产物（以下统称「本软件」）。
+本许可不是开源许可证，不授予 OSI 定义下的开源权利。
+
+────────────────────────────────────────────
+一、定义
+────────────────────────────────────────────
+
+1.1 「个人使用」指自然人为了自己学习、研究和技术验证，在自己的设备上安装、运行、修改本软件。
+1.2 「商业使用」指任何直接或间接获取经济利益的使用，包括但不限于：销售、随商品或硬件预装、
+    付费下载、代安装收费、在企业或组织内部批量部署、作为收费服务或产品的组成部分。
+1.3 「分发」指以任何方式向第三方提供本软件的副本、修改版或构建产物。
+
+────────────────────────────────────────────
+二、授予的权利
+────────────────────────────────────────────
+
+在遵守本许可全部条款的前提下，作者授予你一项免费的、非独占的、不可转让的许可：
+
+2.1 阅读、学习、编译本软件；
+2.2 为个人学习目的修改本软件，并在自己的设备上运行修改后的版本；
+2.3 在注明来源与本许可的前提下，出于学习目的 fork 本仓库进行研究。
+
+────────────────────────────────────────────
+三、限制
+────────────────────────────────────────────
+
+3.1 不得将本软件用于任何商业使用。
+3.2 不得分发本软件的原始版本、修改版本或构建产物（作者本人发布除外）。
+3.3 不得移除、隐藏或修改本软件中的署名、免责声明与本许可文本。
+3.4 不得将本软件用于破解、绕过付费、规避授权校验或侵犯他人合法权益的目的。
+3.5 不得以暗示作者背书的方式使用作者名称、项目名称或标识。
+
+────────────────────────────────────────────
+四、第三方内容
+────────────────────────────────────────────
+
+4.1 内置与在线订阅规则来自社区开源项目，版权归各原作者所有，不适用本许可。
+4.2 第三方内容的授权条件以其原项目声明为准；如与原作者的声明冲突，以原声明为准。
+4.3 若权利人认为本仓库存在不当使用，请联系作者，作者将及时删除相关内容。
+
+────────────────────────────────────────────
+五、无担保与责任限制
+────────────────────────────────────────────
+
+5.1 本软件按「现状」提供，不附带任何明示或暗示的担保，包括但不限于适销性、
+    特定用途适用性、无缺陷和不侵权担保。
+5.2 作者不对使用或无法使用本软件造成的任何直接、间接、偶然、特殊或后果性损失负责，
+    包括但不限于数据丢失、设备异常、误点击导致的交易或订阅。
+5.3 使用者应自行判断使用场景，并自行承担全部风险。
+
+────────────────────────────────────────────
+六、终止
+────────────────────────────────────────────
+
+6.1 违反本许可任一条款，本许可授予的权利立即自动终止。
+6.2 终止后，你应当停止使用并删除本软件的全部副本。
+
+────────────────────────────────────────────
+七、其他
+────────────────────────────────────────────
+
+7.1 本许可适用中华人民共和国法律（不含冲突法规则）。
+7.2 本许可部分条款无效，不影响其余条款的效力。
+7.3 作者保留未明确授予的一切权利。
+
+────────────────────────────────────────────
+English Summary (for reference only; the Chinese text prevails)
+────────────────────────────────────────────
+
+This is a source-available, NON-COMMERCIAL, personal-study-only license.
+It is NOT an OSI-approved open source license.
+
+You MAY: read, study, compile, and modify this software for your own personal
+learning on your own devices, and fork the repository for study with attribution.
+
+You MAY NOT: use it commercially, redistribute it or its builds, remove the
+attribution or this license, or use it to bypass payments or licenses.
+
+Third-party subscription rules remain under their respective authors' terms.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND. THE AUTHORS ARE
+NOT LIABLE FOR ANY DAMAGES ARISING FROM ITS USE.
+
+If you need a standard, well-reviewed text instead, PolyForm Noncommercial
+License 1.0.0 (https://polyformproject.org/licenses/noncommercial/1.0.0) is the
+recommended drop-in replacement.

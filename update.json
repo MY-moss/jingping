@@ -1,16 +1,16 @@
 {
-    "versionCode":  10918,
-    "versionName":  "1.9.18",
-    "tag":  "v1.9.18",
-    "size":  281150,
-    "sha256":  "e2209664078027946c6a85dbfc34447c3b3f8ed9ede691378c1c9496740fc69f",
-    "notes":  "",
-    "apks":  [
-                 "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.18.apk",
-                 "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.18.apk",
-                 "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-                 "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-                 "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-                 "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
-             ]
+  "versionCode": 10918,
+  "versionName": "1.9.18",
+  "tag": "v1.9.18",
+  "size": 281150,
+  "sha256": "e2209664078027946c6a85dbfc34447c3b3f8ed9ede691378c1c9496740fc69f",
+  "notes": "- 修复 B 站误点：GKD 的多步规则（preKeys，先点菜单再点“不感兴趣”）当前引擎无法按顺序执行，B 站/HD 的“分段广告”组会点开菜单并留下弹窗；这两组已整体停用，只保留开屏、关闭类核心规则（B 站 38→21 条，HD 6→3 条）\n- 新增广告角标/容器防误点：目标本身就是“广告/推广”标签、ad_tint_frame、ad_goods_mark 等广告标记时不再点击\n- 响应速度：扫描计划按当前 Activity 预先剔除不可能命中的规则；页面级广告证据只查广告容器 id，减少跨进程读取\n- 资源包：接入 R8 裁剪，DEX 从 398 KB 降到 299 KB，APK 从 326 KB 降到 281 KB（约 274 KB）\n- 首页改为无障碍/电池/通知三步引导，服务状态区分“未连接/已暂停/运行中”；底部导航开始按 首页 / 应用 / 我的 重组\n- 预置规则 2935→2915 条，桌面自测 279 项",
+  "apks": [
+    "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.18.apk",
+    "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.18.apk",
+    "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+    "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+    "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+    "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
+  ]
 }

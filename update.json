@@ -1,16 +1,16 @@
 {
-  "versionCode": 10914,
-  "versionName": "1.9.14",
-  "tag": "v1.9.14",
-  "size": 322171,
-  "sha256": "fb1ff4d881213d7ba2b2b7ab5bf9d4cf478c999eeb59c813f12a03245f70851f",
-  "notes": "## 净屏 1.9.14\n\n这一轮做的是界面、规则库和扫描开销。\n\n- 界面改成苹果风格：中性底色、系统蓝强调色、分组卡片、系统无衬线字体，圆角与行高收紧。\n- 修复订阅解析：写在规则组上的 activityIds 以前整组丢失，现在保留；带界面限定的规则从 1789 条增加到 2369 条。\n- 新增红果短剧规则：开屏广告、阅读页底部卡片广告。\n- 附近广告证据按节点缓存，同一目标被多条规则检查时不再重复扫描父/兄弟和读取坐标。\n- 事件日志增量缓存，设置页刷新不再每次重新解析整本日志。\n- 规则库 2937 条 / 750 个应用，桌面自测 254 项。\n\nAPK：约 315 KB，versionCode 10914，包名和签名保持不变。\n\n验证边界：桌面自测、规则回归、构建与签名校验通过；当前没有真机连接，界面观感和真实广告场景仍需装机确认。\n",
-  "apks": [
-    "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.14.apk",
-    "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.14.apk",
-    "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-    "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-    "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-    "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
-  ]
+    "versionCode":  10915,
+    "versionName":  "1.9.15",
+    "tag":  "v1.9.15",
+    "size":  322167,
+    "sha256":  "664f12f46ae1b1877055741e5486aadb49859bbfc2d46a1ab132f3ab1eabdbc1",
+    "notes":  "",
+    "apks":  [
+                 "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.15.apk",
+                 "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.15.apk",
+                 "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+                 "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+                 "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+                 "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
+             ]
 }

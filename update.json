@@ -1,16 +1,16 @@
 {
-    "versionCode":  10917,
-    "versionName":  "1.9.17",
-    "tag":  "v1.9.17",
-    "size":  326263,
-    "sha256":  "3a01b92d842a5f30d21cb5c549715498dfb92c88f4c8d30a46c65b725ab5553d",
-    "notes":  "",
-    "apks":  [
-                 "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.17.apk",
-                 "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.17.apk",
-                 "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-                 "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-                 "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-                 "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
-             ]
+  "versionCode": 10917,
+  "versionName": "1.9.17",
+  "tag": "v1.9.17",
+  "size": 326263,
+  "sha256": "3a01b92d842a5f30d21cb5c549715498dfb92c88f4c8d30a46c65b725ab5553d",
+  "notes": "- 返回键先回概览；旋转/折叠屏后保留当前页面与各页滚动位置\n- 首页数字改用固定 DP 字号，系统字体放大不再顶到圆环；周统计和应用排行改为 5 秒刷新，减少每 1.5 秒的解析\n- 规则搜索、按应用规则弹窗限制最大高度，横屏不再裁掉底部按钮；快照与更新进度弹窗限制最大宽度\n- 文字按钮点击区统一补到 48dp；关闭动画时也有按压反馈\n- 删除录制规则、移除订阅、清空日志增加确认；校验失败不再关闭弹窗，输入内容保留\n- 设置页开关不再重复占一个无障碍焦点",
+  "apks": [
+    "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.17.apk",
+    "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.17.apk",
+    "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+    "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+    "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+    "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
+  ]
 }

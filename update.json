@@ -1,16 +1,16 @@
 {
-    "versionCode":  10915,
-    "versionName":  "1.9.15",
-    "tag":  "v1.9.15",
-    "size":  322167,
-    "sha256":  "664f12f46ae1b1877055741e5486aadb49859bbfc2d46a1ab132f3ab1eabdbc1",
-    "notes":  "",
-    "apks":  [
-                 "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.15.apk",
-                 "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.15.apk",
-                 "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-                 "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-                 "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-                 "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
-             ]
+  "versionCode": 10915,
+  "versionName": "1.9.15",
+  "tag": "v1.9.15",
+  "size": 322167,
+  "sha256": "664f12f46ae1b1877055741e5486aadb49859bbfc2d46a1ab132f3ab1eabdbc1",
+  "notes": "- 支持 GKD 的 swipe / longClickCenter 动作：订阅里的滑动跳过规则不再被整体丢弃（红果短剧全屏视频广告等）\n- swipeArg 坐标表达式按真实屏幕尺寸求值；表达式不合法就跳过，绝不降级成点击\n- 预置规则重新编译：2935 条 / 750 个应用\n- 编译预置库保留 excludeAllMatches、actionCdKey、actionMaximumKey\n- 浅色模式导航栏图标修复；hero 小字对比度与数字字体统一为无衬线\n- build/verify 增加签名证书指纹校验，防止换密钥导致更新链断裂",
+  "apks": [
+    "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.15.apk",
+    "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.15.apk",
+    "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+    "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+    "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+    "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
+  ]
 }

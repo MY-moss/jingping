@@ -1,16 +1,16 @@
 {
-  "versionCode": 10916,
-  "versionName": "1.9.16",
-  "tag": "v1.9.16",
-  "size": 322167,
-  "sha256": "b89e0a10a389780d878ca5d3bbc042f896dc0209e62271da8cc225934bcecd04",
-  "notes": "- 下载与安装状态持久化：旋转屏幕或进程被回收后，下载完成仍会校验并拉起安装器；完成通知常驻\n- 备份与订阅缓存保持一致：恢复备份/移除订阅会清理旧缓存，录制规则按备份覆盖而不是合并\n- 大订阅导入、备份预览与恢复移到工作线程；剪贴板备份限制 2MB，避免主线程卡死\n- 后台订阅更新全部失败时 30 分钟后重试；前台与后台更新全局互斥；超过 6 个订阅不再被静默丢弃\n- 「仅 Wi-Fi 下载」在测速前检查，失败路径会关闭进度弹窗\n- 对比度与无障碍：加深浅色小字、修正分段控件选中态、补齐 Tab 选中状态与开关可访问名称",
-  "apks": [
-    "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.16.apk",
-    "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.16.apk",
-    "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-    "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-    "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-    "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
-  ]
+    "versionCode":  10917,
+    "versionName":  "1.9.17",
+    "tag":  "v1.9.17",
+    "size":  326263,
+    "sha256":  "3a01b92d842a5f30d21cb5c549715498dfb92c88f4c8d30a46c65b725ab5553d",
+    "notes":  "",
+    "apks":  [
+                 "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.17.apk",
+                 "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.17.apk",
+                 "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+                 "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+                 "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+                 "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
+             ]
 }

@@ -1,16 +1,16 @@
 {
-  "versionCode": 10910,
-  "versionName": "1.9.10",
-  "tag": "v1.9.10",
-  "size": 322167,
-  "sha256": "65e1fcf83ee179762e99e63967005d7daab80dca435eeb8ef26e25d9fae7c2c9",
-  "notes": "## 净屏 1.9.10\n\n这一轮继续修正规则覆盖，并降低常驻运行的扫描成本。\n\n- 规则去重改为完整身份：同选择器但 Activity、排除条件、动作、时间窗、冷却或最大次数不同，不再互相覆盖。\n- 规则库恢复到 2943 条 / 749 个应用；严格模式生效 2116 条 / 676 个应用。\n- Activity 状态每次扫描只预计算一次，减少节点 × 规则重复比较。\n- 普通浏览页不再为搜索态无条件补读整棵节点树；近期输入才进入搜索态检查。\n- “最近命中”排序缓存 2 秒，规则页刷新不再频繁重扫近 3000 条规则。\n- 保留 1.9.9 的规则页收起、快照删除/停用 App、备份预览与回滚。\n\nAPK：约 315 KB，versionCode 10910，包名和签名保持不变。\n\n**验证边界（如实说明）**：桌面自测 230 项全过，2943 条规则回归通过，构建/签名/包名/versionCode 校验通过。当前环境没有真机或模拟器连接，因此尚未声称真实广告、输入法、后台保活、更新安装和旋转场景已验证。\n",
-  "apks": [
-    "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.10.apk",
-    "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.10.apk",
-    "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-    "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-    "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-    "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
-  ]
+    "versionCode":  10911,
+    "versionName":  "1.9.11",
+    "tag":  "v1.9.11",
+    "size":  313975,
+    "sha256":  "a11b079584b050bdc70ca1474cafcf8cd037c085a4c71ee8c863a418a70dd27a",
+    "notes":  "",
+    "apks":  [
+                 "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.11.apk",
+                 "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.11.apk",
+                 "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+                 "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+                 "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+                 "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
+             ]
 }

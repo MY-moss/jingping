@@ -1,16 +1,16 @@
 {
-  "versionCode": 10918,
-  "versionName": "1.9.18",
-  "tag": "v1.9.18",
-  "size": 281150,
-  "sha256": "e2209664078027946c6a85dbfc34447c3b3f8ed9ede691378c1c9496740fc69f",
-  "notes": "- 修复 B 站误点：GKD 的多步规则（preKeys，先点菜单再点“不感兴趣”）当前引擎无法按顺序执行，B 站/HD 的“分段广告”组会点开菜单并留下弹窗；这两组已整体停用，只保留开屏、关闭类核心规则（B 站 38→21 条，HD 6→3 条）\n- 新增广告角标/容器防误点：目标本身就是“广告/推广”标签、ad_tint_frame、ad_goods_mark 等广告标记时不再点击\n- 响应速度：扫描计划按当前 Activity 预先剔除不可能命中的规则；页面级广告证据只查广告容器 id，减少跨进程读取\n- 资源包：接入 R8 裁剪，DEX 从 398 KB 降到 299 KB，APK 从 326 KB 降到 281 KB（约 274 KB）\n- 首页改为无障碍/电池/通知三步引导，服务状态区分“未连接/已暂停/运行中”；底部导航开始按 首页 / 应用 / 我的 重组\n- 预置规则 2935→2915 条，桌面自测 279 项",
-  "apks": [
-    "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.18.apk",
-    "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.18.apk",
-    "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-    "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-    "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-    "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
-  ]
+    "versionCode":  20000,
+    "versionName":  "2.0.0",
+    "tag":  "v2.0.0",
+    "size":  289342,
+    "sha256":  "e140c354ceda125338843f2798b13a31c5e6dfa3584414ce719df88ca148fd87",
+    "notes":  "- 全新三 Tab：首页 / 应用 / 我的。首页只看「它在工作吗、今天挡了多少」；应用升级为一级页；战绩、规则、设置收进「我的」，二级页有返回条，系统返回键逐层退出\n- 应用页：搜索、全部 / 已适配 / 已关闭筛选、适配与规则条数统计；首批渲染 60 个，点「显示更多」再补；点卡片直接开关单条规则\n- 我的页：累计跳过、今天 / 本周、运行状态一屏看完；战绩、规则与订阅、运行记录、区域兜底、设置与权限、检查更新、隐私说明都有带说明的入口\n- 首页新增首次三步卡（无障碍 / 省电白名单 / 通知权限），未完成时排在首屏；「按应用」「近 7 天」可直接进应用页 / 战绩页\n- 响应速度：带 activityIds 的规则只在对应界面参与匹配，常用 App 每界面平均可命中规则从 20–38 条降到 6–8 条\n- 页面级广告证据只读节点 id 并命中即停；无几何规则的页面跳过空叶子；规则 key / identity 只算一次\n- excludeAllMatches 按 GKD 源码语义改为「任一命中即拒绝」，宁可不点也不误点\n- 构建接入 R8 并改为仅 v2 签名，APK 从约 320 KB 降到 283 KB\n- 包含 1.9.18 的 B 站误点修复：无法顺序执行的多步规则组已停用，广告角标/容器本身不再被点击\n- 桌面自测 279 项、误点回归 GATE OK\n\n\u003e 三 Tab 是这一版最大的变化，功能位置变了但行为没变：应用开关、逐条规则、战绩、日志都还在原来的名字下面。\n",
+    "apks":  [
+                 "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.0.0.apk",
+                 "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.0.0.apk",
+                 "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+                 "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+                 "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+                 "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
+             ]
 }

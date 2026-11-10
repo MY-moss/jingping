@@ -1,16 +1,16 @@
 {
-    "versionCode":  10911,
-    "versionName":  "1.9.11",
-    "tag":  "v1.9.11",
-    "size":  313975,
-    "sha256":  "a11b079584b050bdc70ca1474cafcf8cd037c085a4c71ee8c863a418a70dd27a",
-    "notes":  "",
-    "apks":  [
-                 "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.11.apk",
-                 "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.11.apk",
-                 "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-                 "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-                 "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-                 "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
-             ]
+    "versionCode": 10911,
+    "versionName": "1.9.11",
+    "tag": "v1.9.11",
+    "size": 313975,
+    "sha256": "a11b079584b050bdc70ca1474cafcf8cd037c085a4c71ee8c863a418a70dd27a",
+    "notes": "## 净屏 1.9.11\n\n这一轮集中减少误识别。\n\n- 规则命中的目标文案增加黑名单：跳过片头、跳过本章、跳过引导、选集、下一章、倍速等不再被当成广告按钮；规则原文写明「广告」的不受影响。\n- 「关闭广告」改成按钮式判断：必须是「关闭/跳过 + 广告」的结构，正文标题「如何关闭广告」「关闭广告的方法」不再触发。\n- 启动后右上角的放行只认跳过/关闭语义，消息、搜索、扫一扫图标不会再被点。\n- 目标同时占屏幕七成宽、一成高时视为广告容器本身，不点击中心。\n- 兜底识别同时检查 text 和 contentDescription，减少漏判。\n- 更新程序：清单请求 4 秒到点主动断开慢连接；GitHub API 兜底也读取 SHA-256 与体积；自动检查失败 4 小时后重试；换源时清理旧安装包。\n\nAPK：约 307 KB，versionCode 10911，包名和签名保持不变。\n\n验证边界：桌面自测 251 项、2943 条规则回归、构建/签名校验通过；当前没有真机连接，真实广告与播放器场景仍需装机确认。\n",
+    "apks": [
+        "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.11.apk",
+        "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-1.9.11.apk",
+        "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+        "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+        "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+        "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
+    ]
 }

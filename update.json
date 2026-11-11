@@ -3,19 +3,19 @@
   "versionName": "2.4.0",
   "tag": "v2.4.0",
   "size": 329758,
-  "sha256": "425cb0c0278e09db23d53b9f19476aa6cd50cc7c2d41e8bc9049c54211d57b0a",
+  "sha256": "a1b3a4317938bac9a56b6e5f198bc9c73ca94d53bae4116f647b5b157e6df3b5",
   "notes": "## 净屏 2.4.0\n\n### 更快\n\n- 开屏前 5 秒取消「未命中退避」：不再从 40ms 一路涨到 260/420ms；无障碍事件 `notificationTimeout` 80ms→0，系统不再压着事件不发。\n- 新增快车道：事件源 3 层浅扫 + 系统文字/id 直查（`findAccessibilityNodeInfosByText/ByViewId`），命中后连整棵树都不建；候选仍要过完整选择器和全部点击闸门。\n- 整树构建按 160ms/240ms 节流；补扫轮询在窗口结束或暂停后不再永久停止。\n- 亮屏/解锁会重新开启启动窗口，锁屏期间被拉起的开屏广告也能处理。\n\n### 更准\n\n- 兜底识别改为所有精确规则跑完后的第二遍，避免泛词抢先。\n- 未注册但以 `Activity` 结尾的类名也参与 `activityIds` 匹配，混淆 Activity 的规则恢复生效。\n- 点击风暴阈值从 60 秒 4 次 / 暂停 24 小时，改为 10 秒 5 次 / 暂停 10 分钟。\n- 坐标点击裁剪到屏幕内；诊断页显示快查 / 建树 / 匹配分阶段耗时。\n\n### 说明\n\n- APK 约 322 KB，versionCode 20400；桌面自测 323 项通过。\n- 快查只作为候选种子，不会绕过广告上下文闸门；若某应用仍然误点，请在运行记录里点「点错了」。\n",
   "apks": [
-    "https://gitee.com/moyang404/jingping/raw/main/JingPing-2.4.0-r2.apk",
-    "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.0-r2.apk",
-    "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.0-r2.apk",
+    "https://gitee.com/moyang404/jingping/raw/main/JingPing-2.4.0-r3.apk",
+    "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.0-r3.apk",
+    "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.0-r3.apk",
     "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
     "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
     "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
     "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
   ],
   "apks_extra": [
-    "https://jsd.onmicrosoft.cn/gh/MY-moss/jingping@main/apk/JingPing-2.4.0-r2.apk",
+    "https://jsd.onmicrosoft.cn/gh/MY-moss/jingping@main/apk/JingPing-2.4.0-r3.apk",
     "https://gh.llkk.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.0/JingPing.apk",
     "https://ghproxy.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.0/JingPing.apk"
   ]

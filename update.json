@@ -1,21 +1,22 @@
 {
-  "versionCode": 20307,
-  "versionName": "2.3.7",
-  "tag": "v2.3.7",
+  "versionCode": 20308,
+  "versionName": "2.3.8",
+  "tag": "v2.3.8",
   "size": 325662,
-  "sha256": "9297543e53f88ae0014322e750ffee13f9d2c44d56f7f8454633ff7e9fdb19ed",
-  "notes": "## 净屏 2.3.7\n\n这版只解决一件事：国内没有梯子时，更新下载太慢。\n\n### 下载线路\n\n- 下载源从 6 条扩到 9 条，新增 jsd 国内（国内 CDN）、gh.llkk.cc、ghproxy.cc 三条国内可达性更好的线路。\n- `update.json` 本身也加了 jsd 国内、ghfast、gh.llkk.cc 三个镜像，减少「检查更新都卡住」。\n- 新增线路放在 `apks_extra`：2.3.5 及更早版本只读原来的 6 条，不会因为候选变多而在测速阶段多耗流量。\n\n### 测速\n\n- 每条线路的测速探针从 64 KB 降到 12 KB，等待上限从 2.5 秒降到 1.5 秒。\n- 以前 6 条线路测速最多要下 384 KB，比安装包本身还大；现在 9 条只要约 108 KB。\n- 仍然按实测速度自动挑最快的一条，失败自动换下一条；上次成功的线路保留少量加分。\n\n### 说明\n\n- APK 约 318 KB，versionCode 20307；桌面自测 313 项通过。\n- 第三方镜像随时可能失效，失效的线路会自动沉底，不影响其他线路。\n",
+  "sha256": "f10fd2ace4b38d2f06e5e8b005897cdd00b8b61147eabdceb1489c4f3ed138a8",
+  "notes": "## 净屏 2.3.8\n\n### Gitee 国内镜像\n\n- 新增 Gitee 镜像仓库 `gitee.com/moyang404/jingping`，APK 与 `update.json` 都放在仓库里，国内直连下载；实测完整下载 318 KB，SHA-256 与发布包一致。\n- App 默认并发探测 Gitee 的 `update.json`；下载候选里也加入 Gitee 直链，国内网络会优先命中。\n- Gitee 只镜像发布文件，GitHub 仍是主仓库和源码位置。\n\n### 说明\n\n- APK 约 318 KB，versionCode 20308；桌面自测 313 项通过。\n- 国内更新顺序大致是：Gitee → jsd 国内 → gh-proxy / ghfast → GitHub 直连；任何一条失效都会自动换下一条。\n",
   "apks": [
-    "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.3.7.apk",
-    "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.3.7.apk",
+    "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.3.8.apk",
+    "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.3.8.apk",
     "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
     "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
     "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
     "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
   ],
   "apks_extra": [
-    "https://jsd.onmicrosoft.cn/gh/MY-moss/jingping@main/apk/JingPing-2.3.7.apk",
-    "https://gh.llkk.cc/https://github.com/MY-moss/jingping/releases/download/v2.3.7/JingPing.apk",
-    "https://ghproxy.cc/https://github.com/MY-moss/jingping/releases/download/v2.3.7/JingPing.apk"
+    "https://gitee.com/moyang404/jingping/raw/main/JingPing-2.3.8.apk",
+    "https://jsd.onmicrosoft.cn/gh/MY-moss/jingping@main/apk/JingPing-2.3.8.apk",
+    "https://gh.llkk.cc/https://github.com/MY-moss/jingping/releases/download/v2.3.8/JingPing.apk",
+    "https://ghproxy.cc/https://github.com/MY-moss/jingping/releases/download/v2.3.8/JingPing.apk"
   ]
 }

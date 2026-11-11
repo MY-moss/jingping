@@ -1,22 +1,22 @@
 {
-  "versionCode": 20402,
-  "versionName": "2.4.2",
-  "tag": "v2.4.2",
-  "size": 350238,
-  "sha256": "732f50de3b877cee25e5e459d148186d5a48d7639bf6ed9c996a651ec0251de9",
-  "notes": "## 净屏 2.4.2\n\n### 更稳\n\n- 全量扫描在独立工作线程运行后，每次动作前再次确认亮屏状态与输入冷却（10 秒）：用户在全量匹配中途开始打字、或熄屏时，工作线程不会再落下点击。\n- 区域兜底同样在点击前复核亮屏 / 输入状态。\n- 包含 2.4.1 的关键修复：2.4.0 正式包被 R8 裁掉 `BootReceiver`，开机 / 覆盖安装后系统实例化该组件会 `ClassNotFoundException` 崩溃，表现就是无障碍服务莫名掉线。2.4.2 构建继续逐个校验 AndroidManifest 组件仍在 dex 中。\n\n### 也包含 2.4.1 的开屏提速\n\n- 应用内容根（`android:id/content`）分层快扫：跳过 DecorView / 状态栏，每层读完立刻匹配，开屏按钮通常第 1–2 层命中。\n- 文字 / id 直查空窗补排、40ms 最小间隔补排；开屏前 5 秒直查间隔 60ms。\n- 全量建树从内容根开始，整树构建在独立工作线程；链式选择器 `<` / `<<` 与多窗口 `order` 修正。\n\n### 说明\n\n- APK 约 342 KB，versionCode 20402；桌面自测 328 项通过，HitTest 闸门通过。\n- 2.4.1 用户可直接覆盖安装；2.4.0 用户建议直接升到 2.4.2。\n",
+  "versionCode": 20403,
+  "versionName": "2.4.3",
+  "tag": "v2.4.3",
+  "size": 354334,
+  "sha256": "9f9798faa993d1e4e063506c1350ef73b2c72c0c293f2b42e4d7f894726d90ea",
+  "notes": "## 净屏 2.4.3\n\n### 更准\n\n- 键盘弹出时系统会把 Gboard 等输入法报成前台，过去会重置 `windowStart`，回到应用后又获得一轮开屏计时；现在识别输入法包名并直接忽略它的事件，输入法不再干扰应用计时，也不会因为开关键盘把普通页面误当成开屏页。\n- 全量扫描与区域兜底在动作前复核亮屏 / 输入冷却的保护保持不变。\n\n### 更快\n\n- 窗口枚举（`getWindows`）移到快车道之后：快查命中时不再枚举窗口，省掉一次系统服务跨进程调用。\n- `findFocus` 改为 200ms 缓存：40ms 扫描节奏下不再每次扫描都取焦点，输入态仍由焦点 / 文本事件兜底。\n- 应用内容根分层快扫、文字 / id 直查空窗补排、全量扫描工作线程等 2.4.1 / 2.4.2 的改动保持不变。\n\n### 说明\n\n- APK 约 346 KB，versionCode 20403；桌面自测 328 项通过，HitTest 闸门通过。\n- 包含 2.4.2 的 `BootReceiver` 修复；2.4.0 / 2.4.1 / 2.4.2 用户可直接覆盖安装。\n- 模拟器输入框聚焦测试：按钮出现后 5 秒内 0 次点击；键盘开关不再产生「输入法前台」日志。\n",
   "apks": [
-    "https://gitee.com/moyang404/jingping/raw/main/JingPing-2.4.2.apk",
-    "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.2.apk",
-    "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.2.apk",
+    "https://gitee.com/moyang404/jingping/raw/main/JingPing-2.4.3.apk",
+    "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.3.apk",
+    "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.3.apk",
     "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
     "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
     "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
     "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
   ],
   "apks_extra": [
-    "https://jsd.onmicrosoft.cn/gh/MY-moss/jingping@main/apk/JingPing-2.4.2.apk",
-    "https://gh.llkk.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.2/JingPing.apk",
-    "https://ghproxy.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.2/JingPing.apk"
+    "https://jsd.onmicrosoft.cn/gh/MY-moss/jingping@main/apk/JingPing-2.4.3.apk",
+    "https://gh.llkk.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.3/JingPing.apk",
+    "https://ghproxy.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.3/JingPing.apk"
   ]
 }

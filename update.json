@@ -3,8 +3,8 @@
   "versionName": "2.3.6",
   "tag": "v2.3.6",
   "size": 325662,
-  "sha256": "e3f01dc70d67ee24c6d10437eb7948391ae1fca3430d811fd523491b1791b9f7",
-  "notes": "## 净屏 2.3.6\n\n这版只解决一件事：国内没有梯子时，更新下载太慢。\n\n### 下载线路\n\n- 下载源从 6 条扩到 12 条，新增 gh.llkk.cc、moeyy、jsd 国内、gitmirror、ghproxy.cc、gitdl 等国内可达性更好的线路。\n- `update.json` 本身也加了 5 个国内镜像，减少「检查更新都卡住」。\n- 新增线路放在 `apks_extra`：2.3.5 及更早版本只读原来的 6 条，不会因为候选变多而在测速阶段多耗流量。\n\n### 测速\n\n- 每条线路的测速探针从 64 KB 降到 12 KB，等待上限从 2.5 秒降到 1.5 秒。\n- 以前 6 条线路测速最多要下 384 KB，比安装包本身还大；现在 12 条也只要约 144 KB。\n- 仍然按实测速度自动挑最快的一条，失败自动换下一条；上次成功的线路保留少量加分。\n\n### 说明\n\n- APK 约 318 KB，versionCode 20306；桌面自测 313 项通过。\n- 第三方镜像随时可能失效，失效的线路会自动沉底，不影响其他线路。\n",
+  "sha256": "145435bf949e5a34180c0708dd9c4c4dfa02a5bda95c1ec8d2ec78af029c9d82",
+  "notes": "## 净屏 2.3.6\n\n这版只解决一件事：国内没有梯子时，更新下载太慢。\n\n### 下载线路\n\n- 下载源从 6 条扩到 9 条，新增 jsd 国内（国内 CDN）、gh.llkk.cc、ghproxy.cc 三条国内可达性更好的线路。\n- `update.json` 本身也加了 jsd 国内、ghfast、gh.llkk.cc 三个镜像，减少「检查更新都卡住」。\n- 新增线路放在 `apks_extra`：2.3.5 及更早版本只读原来的 6 条，不会因为候选变多而在测速阶段多耗流量。\n\n### 测速\n\n- 每条线路的测速探针从 64 KB 降到 12 KB，等待上限从 2.5 秒降到 1.5 秒。\n- 以前 6 条线路测速最多要下 384 KB，比安装包本身还大；现在 9 条只要约 108 KB。\n- 仍然按实测速度自动挑最快的一条，失败自动换下一条；上次成功的线路保留少量加分。\n\n### 说明\n\n- APK 约 318 KB，versionCode 20306；桌面自测 313 项通过。\n- 第三方镜像随时可能失效，失效的线路会自动沉底，不影响其他线路。\n",
   "apks": [
     "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.3.6.apk",
     "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.3.6.apk",
@@ -14,11 +14,8 @@
     "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
   ],
   "apks_extra": [
-    "https://gh.llkk.cc/https://github.com/MY-moss/jingping/releases/download/v2.3.6/JingPing.apk",
-    "https://github.moeyy.xyz/https://github.com/MY-moss/jingping/releases/download/v2.3.6/JingPing.apk",
-    "https://ghproxy.cc/https://github.com/MY-moss/jingping/releases/download/v2.3.6/JingPing.apk",
-    "https://gitdl.cn/https://github.com/MY-moss/jingping/releases/download/v2.3.6/JingPing.apk",
     "https://jsd.onmicrosoft.cn/gh/MY-moss/jingping@main/apk/JingPing-2.3.6.apk",
-    "https://raw.gitmirror.com/MY-moss/jingping/main/apk/JingPing-2.3.6.apk"
+    "https://gh.llkk.cc/https://github.com/MY-moss/jingping/releases/download/v2.3.6/JingPing.apk",
+    "https://ghproxy.cc/https://github.com/MY-moss/jingping/releases/download/v2.3.6/JingPing.apk"
   ]
 }

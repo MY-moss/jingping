@@ -47,6 +47,7 @@ Android 7.0+ · 约 314 KB · 无账号 · 完全离线
 ## 🔄 更新
 
 - 我的 → 更新中心，检查新版、管理订阅、查看下载校验状态。
+- 2.3.10 修正 Gitee 仓库地址无法保存的问题；「更新仓库」现在支持 gitee.com/owner/repo。
 - 2.3.9 修正 Gitee 仓库的发布页链接与 API 兜底；Gitee 直链进入旧版本也能读到的主下载列表。
 - 2.3.8 新增 Gitee 国内镜像（gitee.com/moyang404/jingping），APK 与 update.json 国内直连，实测哈希一致。
 - 2.3.7 国内下载优化：9 条下载线路（含 jsd 国内、gh.llkk.cc、ghproxy.cc），测速探针 64 KB 降到 12 KB，检查更新与下载都更快。

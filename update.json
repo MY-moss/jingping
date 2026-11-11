@@ -6,8 +6,8 @@
   "sha256": "b956b147280030f70cb868cb966faf33eead191ab1e35b4364fa78f5dea90eb5",
   "notes": "## 净屏 2.2.0\n\n这次主要不是加页面，而是把「扫描」「更新」这两条一直在后台跑的路减负，并把更新状态摊开给你看。\n\n### 扫描：事件源子树增量 + hint 倒排\n\n- 内容变化事件带来源节点时，不再每个事件都重建最多 1600 个节点，而是先只重建发生变化的那棵子树。\n- 子树快扫只跑不依赖父/兄弟/深度/序号上下文的单节点规则；没命中再按 200ms 节流补一次全量，多步选择器不会被漏掉。\n- 新增 hint 倒排索引：按字面量前两个字符建桶，节点只枚举自己的二元组，字面量根本不在节点里的规则整批排除；单字 hint / 无 hint 规则自动兜底，保证不漏判。\n- 这两项主要降低开屏窗口内的 CPU、跨进程读取和扫描延迟，规则命中结果保持不变。\n\n### 更新：一个更新中心，按源记录\n\n- 新增「更新中心」：App 检查、镜像测速、下载、SHA-256 与签名校验、安装状态集中显示，不再到处找入口。\n- 每个订阅源单独记录上次成功时间；自动更新只拉过期或失败的源，一个源超时不会让其他源一起等 12 小时。\n- 后台每 30 分钟检查一次过期源；全部新鲜时不联网。\n- 下载中可以在这里取消；校验失败会明确显示原因，旧订阅缓存继续生效。\n\n### 跳过瞬间减负\n\n- 快照的节点裁剪、字段读取和 JSON 编码从点击线程移到后台线程，只在最后落盘。\n- 规则命中统计不再每次点击都同步序列化最多 800 条到 SharedPreferences，改为 1.5 秒合并写；清空统计仍会立即落盘。\n\n### 验证\n\n- 桌面自测 311 项通过，含单节点 / 多步 / 深度 / 序号规则的快扫边界，以及 hint 倒排不漏判回归。\n- APK 约 310 KB，仍然完全离线，不上传任何界面内容。\n\n真机仍未验证。子树快扫依赖无障碍事件来源节点，如果你在某个应用里发现开屏按钮出现后要多等半秒才跳，把「诊断」页的扫描信息发我，我再按应用调整全量补扫的节奏。\n",
   "apks": [
-    "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.2.0.apk",
-    "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.2.0.apk",
+    "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.2.0-final.apk",
+    "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.2.0-final.apk",
     "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
     "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
     "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",

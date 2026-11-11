@@ -1,16 +1,24 @@
 {
-  "versionCode": 20305,
-  "versionName": "2.3.5",
-  "tag": "v2.3.5",
+  "versionCode": 20306,
+  "versionName": "2.3.6",
+  "tag": "v2.3.6",
   "size": 325662,
-  "sha256": "65958cb7865c3db2c844fedd6be9847cd83534616a54fb4c788e28e676fb4d40",
-  "notes": "## 净屏 2.3.5\n\n这版针对「无障碍服务容易被系统杀掉」做保活强化，参考了 GKD 的做法。\n\n### 保活\n\n- 无障碍服务连接后挂一个 1×1 透明窗口（TYPE_ACCESSIBILITY_OVERLAY，不可触摸、不可聚焦），让进程保持「有可见界面」的重要级别，降低被 LMK / 厂商清理的概率；关闭常驻保活会自动移除。\n- 守卫检查从 30 分钟一次缩短到 3 分钟，并在亮屏 / 解锁时立即检查。\n- 开关还开着、服务却被杀时，发高优先级通知「净屏的无障碍服务被系统停掉了」，点一下直接进无障碍设置；常驻通知本身也会变成「无障碍已断开」。\n- 开机、覆盖安装后自动拉起守卫；从最近任务划掉后用一个闹钟尝试拉回。\n- 如果设备用 adb 授过 WRITE_SECURE_SETTINGS，掉线后会自动把服务写回无障碍列表（没有授权时是空操作）。\n- 设备页加入「常驻守卫」状态，一键完成会按无障碍 → 电池 → 守卫 → 通知 → 自启动的顺序处理。\n\n### 说明\n\n- App 无法阻止系统解绑无障碍服务；这版做的是降低被杀概率、尽快发现、一键恢复。\n- APK 约 318 KB，versionCode 20305；桌面自测 313 项通过。\n- 真机仍未验证，尤其是不同 ROM 的自启动页是否存在。\n",
+  "sha256": "e3f01dc70d67ee24c6d10437eb7948391ae1fca3430d811fd523491b1791b9f7",
+  "notes": "## 净屏 2.3.6\n\n这版只解决一件事：国内没有梯子时，更新下载太慢。\n\n### 下载线路\n\n- 下载源从 6 条扩到 12 条，新增 gh.llkk.cc、moeyy、jsd 国内、gitmirror、ghproxy.cc、gitdl 等国内可达性更好的线路。\n- `update.json` 本身也加了 5 个国内镜像，减少「检查更新都卡住」。\n- 新增线路放在 `apks_extra`：2.3.5 及更早版本只读原来的 6 条，不会因为候选变多而在测速阶段多耗流量。\n\n### 测速\n\n- 每条线路的测速探针从 64 KB 降到 12 KB，等待上限从 2.5 秒降到 1.5 秒。\n- 以前 6 条线路测速最多要下 384 KB，比安装包本身还大；现在 12 条也只要约 144 KB。\n- 仍然按实测速度自动挑最快的一条，失败自动换下一条；上次成功的线路保留少量加分。\n\n### 说明\n\n- APK 约 318 KB，versionCode 20306；桌面自测 313 项通过。\n- 第三方镜像随时可能失效，失效的线路会自动沉底，不影响其他线路。\n",
   "apks": [
-    "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.3.5.apk",
-    "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.3.5.apk",
+    "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.3.6.apk",
+    "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.3.6.apk",
     "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
     "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
     "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
     "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
+  ],
+  "apks_extra": [
+    "https://gh.llkk.cc/https://github.com/MY-moss/jingping/releases/download/v2.3.6/JingPing.apk",
+    "https://github.moeyy.xyz/https://github.com/MY-moss/jingping/releases/download/v2.3.6/JingPing.apk",
+    "https://ghproxy.cc/https://github.com/MY-moss/jingping/releases/download/v2.3.6/JingPing.apk",
+    "https://gitdl.cn/https://github.com/MY-moss/jingping/releases/download/v2.3.6/JingPing.apk",
+    "https://jsd.onmicrosoft.cn/gh/MY-moss/jingping@main/apk/JingPing-2.3.6.apk",
+    "https://raw.gitmirror.com/MY-moss/jingping/main/apk/JingPing-2.3.6.apk"
   ]
 }

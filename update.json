@@ -1,22 +1,22 @@
 {
-  "versionCode": 20401,
-  "versionName": "2.4.1",
-  "tag": "v2.4.1",
+  "versionCode": 20402,
+  "versionName": "2.4.2",
+  "tag": "v2.4.2",
   "size": 350238,
-  "sha256": "5d1669bef11ad81c93d1097df477f594c59b015e407fa8e65c0c8c6799936670",
-  "notes": "## 净屏 2.4.1\n\n### 更稳（建议 2.4.0 用户直接升级）\n\n- 修复 2.4.0 正式包被 R8 裁掉 `BootReceiver` 的问题：开机、覆盖安装后系统按类名实例化该组件会 `ClassNotFoundException` 崩溃，用户看到的就是无障碍服务「莫名其妙掉线、保护不长久」。2.4.1 已补 keep 规则，并在构建时逐个校验 AndroidManifest 组件仍在 dex 中，漏掉会直接构建失败。\n- 服务解绑时立即停掉补扫并让在途扫描放弃点击；扫描线程补上生命周期保护，避免重连时二次启动或未启动就 quit 造成卡死。\n\n### 更快\n\n- 快车道新增「应用内容根」快扫：先定位 `android:id/content`，从应用自己的根节点按层扫描，跳过 DecorView / 状态栏 / 导航栏；每层读完立刻匹配，开屏按钮通常第 1–2 层就命中。\n- 事件源是 DecorView、或 `getSource()` 返回 null 时也能走内容根路径，不再只能等跨进程文字直查。\n- 文字/id 直查增加空窗补排：按钮刚好出现在两轮直查之间时，按剩余间隔自动补扫，不再干等下一次事件或 900ms 轮询。\n- 普通扫描被 40ms 最小间隔挡下时补排，不再丢掉「最后一个内容事件」。\n- 开屏前 5 秒直查间隔 120ms→60ms；候选不再逐个跨进程读 `packageName`。\n- 全量建树从内容根开始，节点预算不再花在装饰层；整树构建仍在独立工作线程，主线程只跑快车道。\n\n### 更准\n\n- 修正链式选择器 `<` / `<<` 的序号语义与多窗口节点 `order` 偏移，减少深层规则的漏匹配和错匹配。\n- 解锁后等第一个真实页面状态变化再重开启动窗口，避免亮屏、看视频被误当成开屏。\n- 全量扫描移到工作线程后，给 `pendingAction`、最近步骤、区域兜底等共享状态补锁，避免两个线程同时动作。\n\n### 说明\n\n- APK 约 342 KB，versionCode 20401；桌面自测 328 项通过，HitTest 闸门通过。\n- 模拟器同场景「按钮出现→点击」约 210–290ms（2.4.0 约 268–477ms），真机通常更快；真机仍建议先用「观察模式」跑一段时间。\n- 2.4.0 的 `BootReceiver` 崩溃只影响正式包的 R8 裁剪产物，源码直接运行不受影响；请直接覆盖安装 2.4.1。\n",
+  "sha256": "732f50de3b877cee25e5e459d148186d5a48d7639bf6ed9c996a651ec0251de9",
+  "notes": "## 净屏 2.4.2\n\n### 更稳\n\n- 全量扫描在独立工作线程运行后，每次动作前再次确认亮屏状态与输入冷却（10 秒）：用户在全量匹配中途开始打字、或熄屏时，工作线程不会再落下点击。\n- 区域兜底同样在点击前复核亮屏 / 输入状态。\n- 包含 2.4.1 的关键修复：2.4.0 正式包被 R8 裁掉 `BootReceiver`，开机 / 覆盖安装后系统实例化该组件会 `ClassNotFoundException` 崩溃，表现就是无障碍服务莫名掉线。2.4.2 构建继续逐个校验 AndroidManifest 组件仍在 dex 中。\n\n### 也包含 2.4.1 的开屏提速\n\n- 应用内容根（`android:id/content`）分层快扫：跳过 DecorView / 状态栏，每层读完立刻匹配，开屏按钮通常第 1–2 层命中。\n- 文字 / id 直查空窗补排、40ms 最小间隔补排；开屏前 5 秒直查间隔 60ms。\n- 全量建树从内容根开始，整树构建在独立工作线程；链式选择器 `<` / `<<` 与多窗口 `order` 修正。\n\n### 说明\n\n- APK 约 342 KB，versionCode 20402；桌面自测 328 项通过，HitTest 闸门通过。\n- 2.4.1 用户可直接覆盖安装；2.4.0 用户建议直接升到 2.4.2。\n",
   "apks": [
-    "https://gitee.com/moyang404/jingping/raw/main/JingPing-2.4.1.apk",
-    "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.1.apk",
-    "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.1.apk",
+    "https://gitee.com/moyang404/jingping/raw/main/JingPing-2.4.2.apk",
+    "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.2.apk",
+    "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.2.apk",
     "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
     "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
     "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
     "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
   ],
   "apks_extra": [
-    "https://jsd.onmicrosoft.cn/gh/MY-moss/jingping@main/apk/JingPing-2.4.1.apk",
-    "https://gh.llkk.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.1/JingPing.apk",
-    "https://ghproxy.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.1/JingPing.apk"
+    "https://jsd.onmicrosoft.cn/gh/MY-moss/jingping@main/apk/JingPing-2.4.2.apk",
+    "https://gh.llkk.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.2/JingPing.apk",
+    "https://ghproxy.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.2/JingPing.apk"
   ]
 }

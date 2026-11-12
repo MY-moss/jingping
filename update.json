@@ -1,22 +1,22 @@
 {
-  "versionCode": 20404,
-  "versionName": "2.4.4",
-  "tag": "v2.4.4",
-  "size": 354334,
-  "sha256": "56750d9a0a1b6d3fe905337f6d33f7159c565620b42835d23eb1bd3ea7f5f08e",
-  "notes": "## 净屏 2.4.4\n\n### 更准\n\n- 开屏快车道不再只跑单节点规则：围绕文字/id 直查候选补一棵小型局部树（最多 3 层祖先、每层 8–10 个孩子、候选自己一层孩子），「广告容器 > 关闭图标」这类多段链式规则也能在快车道命中。\n- 局部树只接受不依赖全局 depth / order / index 的选择器；命中后仍走完整选择器、排除条件和全部点击闸门。\n- 排除条件继续只接受单节点规则：局部树补不全的分支如果参与排除，可能把本该拦下的目标放过去，这类规则仍回落到全树。\n- 快查命中后补父链时，从局部树已有的祖先继续向上补到 6 层，输入框 / 搜索容器判断不再缺证据。\n\n### 更快\n\n- 快车道按层扫描改为累积节点表，每层只匹配新增节点；`<<` 后代关系仍按 DFS `order` 查找，局部树按 DFS 编号后再匹配。\n- 多窗口建树改为并行：同一应用的主窗口和弹窗根节点各在一棵小线程池里建树，仍保持每棵树内部的 depth / index / order 语义；单窗口或小预算继续走串行，某个窗口超时只丢弃该窗口。\n- 局部树尝试放在所有单节点直查之后，最多 2 棵、约 20ms；没命中不会拖慢原来的快车道。\n\n### 说明\n\n- APK 约 346 KB，versionCode 20404；桌面自测 336 项通过，HitTest 闸门通过。\n- 包含 2.4.3 的输入法前台修复与 2.4.2 的动作前二次确认；2.4.0 / 2.4.1 / 2.4.2 / 2.4.3 用户可直接覆盖安装。\n- 模拟器普通开屏点击正常；输入框聚焦测试 6 秒内 0 次点击。链式局部树的新增能力还需要真机上用诊断页和运行记录继续观察命中率。\n",
+  "versionCode": 20405,
+  "versionName": "2.4.5",
+  "tag": "v2.4.5",
+  "size": 358430,
+  "sha256": "ef1534025a2afd8b2989accee4ce6869c4fa5259e396676b4ef38ad4150678fc",
+  "notes": "## 净屏 2.4.5\n\n### 修复跳过次数不更新\n\n- 根因：点击后确认广告是否消失时，读取的是点击瞬间的 `AccessibilityNodeInfo` 快照。广告原地隐藏或移除后，旧快照仍可能报告「可见」，于是这笔跳过在 900ms / 2200ms 两次检查都被判成未确认，次数一直不涨。现在先调用 `refresh()` 从系统重新拉取节点，节点已不在树里就立即确认。\n- 多个待确认动作改为独立跟踪：900ms 内连续跳过不再互相覆盖，第一笔不会被第二笔挤掉。\n- 同一条规则在日志去重窗口内再次生效时，只抑制重复日志，不再跳过计数。\n- 累计、今日、按应用、场景与规则命中统计的读改写统一加锁，避免并发读旧值再写回导致丢次数。\n\n### 界面同步\n\n- 战绩写入后监听 `SharedPreferences` 变化，立即刷新首页、战绩、我的、应用列表、应用详情、规则页和设置页；不再只等 1.5 秒轮询。\n- 首页「累计」不再受 5 秒节流限制，跳过确认后立即更新。\n- 保活通知里的「今日已跳过 N 次」也会随统计变化刷新。\n- 「清空统计」会先取消清空前还在等待确认的动作，避免旧跳过稍后写回来。\n\n### 说明\n\n- APK 约 350 KB，versionCode 20405；桌面自测 336 项通过，HitTest 闸门通过。\n- 模拟器新增「原地隐藏广告」用例：点完只隐藏按钮、不结束 Activity。修复前次数不涨，修复后 49→50、今日 6→7。\n- 普通开屏点击正常；输入框聚焦测试 6 秒内 0 次点击。2.4.0–2.4.4 用户可直接覆盖安装。\n",
   "apks": [
-    "https://gitee.com/moyang404/jingping/raw/main/JingPing-2.4.4.apk",
-    "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.4.apk",
-    "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.4.apk",
+    "https://gitee.com/moyang404/jingping/raw/main/JingPing-2.4.5.apk",
+    "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.5.apk",
+    "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.5.apk",
     "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
     "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
     "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
     "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
   ],
   "apks_extra": [
-    "https://jsd.onmicrosoft.cn/gh/MY-moss/jingping@main/apk/JingPing-2.4.4.apk",
-    "https://gh.llkk.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.4/JingPing.apk",
-    "https://ghproxy.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.4/JingPing.apk"
+    "https://jsd.onmicrosoft.cn/gh/MY-moss/jingping@main/apk/JingPing-2.4.5.apk",
+    "https://gh.llkk.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.5/JingPing.apk",
+    "https://ghproxy.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.5/JingPing.apk"
   ]
 }

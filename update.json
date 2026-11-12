@@ -1,22 +1,22 @@
 {
-  "versionCode": 20405,
-  "versionName": "2.4.5",
-  "tag": "v2.4.5",
-  "size": 358430,
-  "sha256": "ef1534025a2afd8b2989accee4ce6869c4fa5259e396676b4ef38ad4150678fc",
-  "notes": "## 净屏 2.4.5\n\n### 修复跳过次数不更新\n\n- 根因：点击后确认广告是否消失时，读取的是点击瞬间的 `AccessibilityNodeInfo` 快照。广告原地隐藏或移除后，旧快照仍可能报告「可见」，于是这笔跳过在 900ms / 2200ms 两次检查都被判成未确认，次数一直不涨。现在先调用 `refresh()` 从系统重新拉取节点，节点已不在树里就立即确认。\n- 多个待确认动作改为独立跟踪：900ms 内连续跳过不再互相覆盖，第一笔不会被第二笔挤掉。\n- 同一条规则在日志去重窗口内再次生效时，只抑制重复日志，不再跳过计数。\n- 累计、今日、按应用、场景与规则命中统计的读改写统一加锁，避免并发读旧值再写回导致丢次数。\n\n### 界面同步\n\n- 战绩写入后监听 `SharedPreferences` 变化，立即刷新首页、战绩、我的、应用列表、应用详情、规则页和设置页；不再只等 1.5 秒轮询。\n- 首页「累计」不再受 5 秒节流限制，跳过确认后立即更新。\n- 保活通知里的「今日已跳过 N 次」也会随统计变化刷新。\n- 「清空统计」会先取消清空前还在等待确认的动作，避免旧跳过稍后写回来。\n\n### 说明\n\n- APK 约 350 KB，versionCode 20405；桌面自测 336 项通过，HitTest 闸门通过。\n- 模拟器新增「原地隐藏广告」用例：点完只隐藏按钮、不结束 Activity。修复前次数不涨，修复后 49→50、今日 6→7。\n- 普通开屏点击正常；输入框聚焦测试 6 秒内 0 次点击。2.4.0–2.4.4 用户可直接覆盖安装。\n",
-  "apks": [
-    "https://gitee.com/moyang404/jingping/raw/main/JingPing-2.4.5.apk",
-    "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.5.apk",
-    "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.5.apk",
-    "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-    "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-    "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-    "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
-  ],
-  "apks_extra": [
-    "https://jsd.onmicrosoft.cn/gh/MY-moss/jingping@main/apk/JingPing-2.4.5.apk",
-    "https://gh.llkk.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.5/JingPing.apk",
-    "https://ghproxy.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.5/JingPing.apk"
-  ]
+    "versionCode":  20406,
+    "versionName":  "2.4.6",
+    "tag":  "v2.4.6",
+    "size":  354334,
+    "sha256":  "b793d92bef993646f63da5f29694bff2bf5032f48356ea6d9f2636a18f9688a9",
+    "notes":  "## 净屏 2.4.6\n\n### 规则精简\n\n- 编译预置库和运行时加载订阅时，停用「无 `activityIds`、无具体 id、无父子 / 兄弟 / 后代节点关系」的单节点泛文字规则。规则从 3345 条降到 3206 条（-139），预置资源从 1.17 MB 降到 1.14 MB，覆盖应用 747 个。\n- 带结构链、id、界面限定的规则全部保留；内置规则（逐条人工维护）、用户自定义与录制规则不在此列，但仍受输入保护和广告上下文闸门约束。\n- 导入的社区订阅走同一标准，不再把「见字就点」的规则带进日常页面；日志会显示本次停用了多少条泛文字规则。\n\n### 输入误识别\n\n- 输入框识别覆盖 `editable` 自定义控件、`TYPE_VIEW_TEXT_CHANGED`、`TYPE_VIEW_TEXT_SELECTION_CHANGED`，祖先链从 6 层放宽到 40 层；输入框聚焦时完全不执行自动点击，焦点消失后仍冷却 10 秒。\n- 输入内容在应用内持续保留，换应用才清空：用户输入「跳过广告」后，搜索建议、历史记录、聊天正文里出现相同或包含该文字的节点一律不点，不受 10 秒冷却限制。\n- 搜索态下可滚动列表里的「跳过」「关闭」等短文字不再按泛规则点击；真正需要点的搜索页广告应使用带 id / `activityIds` 的精确规则。\n- 动作前重新读取当前输入焦点，防止全量扫描中途开始打字后落下旧点击。\n- 修复开发中发现的启动误判：普通焦点事件曾被当成「刚输入过」，导致部分应用开屏 10 秒内完全不点；现在只在最近确实有输入事件时才延长保护。输入焦点查询异常时也不再吞掉所有点击。\n\n### 说明\n\n- APK 354,334 字节（346 KB），versionCode 20406；桌面自测 347 项通过，HitTest 闸门通过。\n- 模拟器验证：正常开屏按钮出现后约 0.8 秒点击；输入框聚焦 12 秒 0 次点击；自定义类名输入控件 0 次点击；原地隐藏广告后跳过次数实时确认。\n- 2.4.0–2.4.5 用户可直接覆盖安装。规则精简只影响默认预置与订阅，不影响已录制的规则。\n",
+    "apks":  [
+                 "https://gitee.com/moyang404/jingping/raw/main/JingPing-2.4.6.apk",
+                 "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.6.apk",
+                 "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.6.apk",
+                 "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+                 "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+                 "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
+                 "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
+             ],
+    "apks_extra":  [
+                       "https://jsd.onmicrosoft.cn/gh/MY-moss/jingping@main/apk/JingPing-2.4.6.apk",
+                       "https://gh.llkk.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.6/JingPing.apk",
+                       "https://ghproxy.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.6/JingPing.apk"
+                   ]
 }

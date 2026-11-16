@@ -1,22 +1,22 @@
 {
-    "versionCode":  20408,
-    "versionName":  "2.4.8",
-    "tag":  "v2.4.8",
+    "versionCode":  20409,
+    "versionName":  "2.4.9",
+    "tag":  "v2.4.9",
     "size":  358430,
-    "sha256":  "71302c6c031e299a4ca1209bd26b45a9fa9817dd09469a6599ac5b7ab90da52e",
-    "notes":  "## 净屏 2.4.8\n\n### 兜底快车道\n\n- 兜底识别不再只等全量扫描。精确规则没命中时，先扫应用内容根 / 事件源浅层，再用「跳过」「关闭」做两轮系统文字直查，候选最多 36 个。\n- 长列表把「跳过」按钮排到几百个节点之后时，整树预算往往先被列表用完，过去的兜底就看不到它；现在浅层节点和文字直查先覆盖这类按钮。\n- 快车道候选仍走完整的 `Fallback` 闸门：输入框 / 搜索回显 / 搜索列表内容防护、文案黑名单、广告证据、尺寸、广告角标目标拦截都不变。\n- 兜底快车道只在「没有精确规则」或「精确快车道已经试过一轮」时运行；只剩多段链规则的页面继续交给全量扫描，先让精确规则有机会命中。\n- 兜底点击前新增强制复核：输入冷却中或已熄屏时一律不点，工作线程也不会在状态变化后落点。\n\n### 诊断页一键操作\n\n- 「最近被拦下的规则」每条增加「停用这条规则 / 重新启用」；停用后立即写入规则开关、让扫描计划缓存失效，不必再跳到规则页查找。\n- 「上次跳过」增加「点错了」和「停用这条规则」：点错了累计 2 次会按既有逻辑自动停用；停用是立即生效。兜底跳过没有规则可关时，不显示这些入口。\n- 诊断页仍只读取本机状态，不上传任何界面内容。\n\n### 验证\n\n- 桌面自测 353 项通过，HitTest 闸门通过，规则库 3206 条。\n- 模拟器验证：先正常命中「跳过广告」规则，再从诊断页停用该规则；重新打开测试页后，兜底快车道命中「跳过广告」，按钮出现到点击约 0.9 秒，跳过次数正常确认。\n- APK 约 350 KB，versionCode 20408，签名证书 SHA-256 与既有版本一致。\n- 2.4.0–2.4.7 用户可直接覆盖安装；本次不涉及规则库格式和已录制规则。\n",
+    "sha256":  "1e94711cb3775bb3f38437ef208c31a7b9e427e4b6ebef8ec8233fc5587a6e29",
+    "notes":  "## 净屏 2.4.9\n\n### 仅精确规则\n\n- 设置新增「仅精确规则」开关。打开后规则库不再加载包含 `text*=`、`text^=`、`text$=`、`text~=` 的规则，只保留精确文案、具体 id、Activity 和结构链。\n- 当前预置库实测会停用 **456 条规则、涉及 251 个应用**；确认弹窗会先说明影响范围，取消不会改动配置。\n- 开启时兜底识别和自定义关键词一并停用——它们同属启发式文字判断。默认「标准」档行为不变。\n- 诊断页会显示「仅精确规则」状态和停用条数。\n- 关闭开关后重新加载完整规则库，不需要重启服务。\n\n### 兜底识别收紧\n\n- 自定义兜底关键词仍只在启动窗口内生效，但目标文案必须带「广告」，或本身不超过 6 个字。过去 10 字上限会把「我知道了，这篇文章讲的是如何跳过广告」这类正文当成按钮。\n- 兜底快车道只在启动窗口内运行；窗口外只允许精确快车道，不再每 600ms 额外查询「跳过 / 关闭」。窗口外的兜底仍由全量扫描负责，并继续要求强广告证据。\n\n### 规则库统计\n\n- 预置库 3219 条中，628 条使用模糊文本；其中 617 条同时带 Activity / id / 链式结构，真正无结构约束的只有少量，且运行时还会被泛规则过滤继续剔除。\n- 80 个应用的专属规则全部依赖模糊文本，因此没有默认删除这些规则；「仅精确规则」作为可选档，让需要极致稳妥的用户自行取舍。\n\n### 验证\n\n- 桌面自测 367 项通过，HitTest 闸门通过，规则库 3206 条。\n- 模拟器验证：默认档兜底照常命中「跳过广告」；开启仅精确规则后，同一测试页 0 次点击；关闭开关后恢复。\n- APK 约 350 KB，versionCode 20409，签名证书 SHA-256 与既有版本一致。\n- 2.4.0–2.4.8 用户可直接覆盖安装；本次不涉及规则库格式和已录制规则。\n",
     "apks":  [
-                 "https://gitee.com/moyang404/jingping/raw/main/JingPing-2.4.8.apk",
-                 "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.8.apk",
-                 "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.8.apk",
+                 "https://gitee.com/moyang404/jingping/raw/main/JingPing-2.4.9.apk",
+                 "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.9.apk",
+                 "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.9.apk",
                  "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
                  "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
                  "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
                  "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
              ],
     "apks_extra":  [
-                       "https://jsd.onmicrosoft.cn/gh/MY-moss/jingping@main/apk/JingPing-2.4.8.apk",
-                       "https://gh.llkk.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.8/JingPing.apk",
-                       "https://ghproxy.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.8/JingPing.apk"
+                       "https://jsd.onmicrosoft.cn/gh/MY-moss/jingping@main/apk/JingPing-2.4.9.apk",
+                       "https://gh.llkk.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.9/JingPing.apk",
+                       "https://ghproxy.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.9/JingPing.apk"
                    ]
 }

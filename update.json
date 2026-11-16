@@ -1,22 +1,22 @@
 {
-    "versionCode":  20410,
-    "versionName":  "2.4.10",
-    "tag":  "v2.4.10",
+    "versionCode":  20411,
+    "versionName":  "2.4.11",
+    "tag":  "v2.4.11",
     "size":  358430,
-    "sha256":  "e9c417350a45fbbd4cc2e8e2c6f618623616ec9885e686dcd37ec3041c8c82ae",
-    "notes":  "## 净屏 2.4.10\n\n### 仅精确规则补齐\n\n- 精确档现在对**所有来源**的规则一视同仁：除了订阅规则，自定义规则、录制规则、内置规则里只要用了 `text*=` / `text^=` / `text$=` / `text~=`，同样停用。此前自定义和录制规则被豁免，导致「只保留精确文案」的说法与实际行为不一致。\n- 区域兜底在精确档下彻底停用：框选的是盲点坐标，不属于可验证规则。已开启区域兜底的应用不会在精确档里被点；扫描前的空转判断也跳过区域兜底，不再为它读节点树。\n- 备份导出/恢复补上 `exactOnly` 字段；恢复时先同步内存标志，导入流程末尾统一重载一次规则库，不会解析两遍。\n\n### 设置页文案\n\n- 兜底识别一行的说明补充「开启『仅精确规则』时这项无效」，不再出现开关打开但实际不生效的困惑。\n- 仅精确规则的确认弹窗写明会同时关闭兜底识别、自定义关键词和区域兜底。\n\n### 验证\n\n- 桌面自测 368 项通过，HitTest 闸门通过。\n- 模拟器验证：默认档测试页 1.8 秒命中「跳过广告」；开启仅精确规则后同一页面 8 秒 0 点击，确认弹窗显示「会停用 479 条、涉及 253 个应用」；关闭开关后恢复命中。\n- versionCode 20410，签名证书 SHA-256 与既有版本一致，2.4.0–2.4.9 可直接覆盖安装。\n",
+    "sha256":  "9f8dd93cc80a5a7f71fb5aa23d697479de945b927e330c02a965b185132503a5",
+    "notes":  "## 净屏 2.4.11\n\n### 界面精简\n\n- **首页**：移除整块「最近跳过」卡片，改成一行摘要（时间 + 最近一条），完整列表仍在「运行记录」。首屏少约 170dp，从「Hero + 快捷设置」缩短到一屏能看完。\n- **快捷设置**改名「快捷控制」，删掉重复的「一键优化」和「诊断」两行——这两个入口在「我的」页已有。\n- **授权卡**只显示未完成的步骤；已完成的无障碍、电池、通知项收起，不再占首屏。\n- **按应用 / 近 7 天**两个卡片去掉标题右侧的「管理」「详情」链接，改为点击整张卡进入；尾注只留一个数字。\n- **应用页**删除顶部三格统计卡（已适配 / 规则条数 / 已关闭）与「区域兜底」入口，统计并入头部一行摘要，列表上移约 150dp。\n- **应用详情**删除工具卡（区域兜底、运行记录），最近跳过卡片自带返回入口。\n- **规则页**删除「按应用管理」折叠区和工具卡里重复的区域兜底 / 录制入口。\n- **设置页**拆成「识别策略」（强度、兜底、白名单、时间窗、校验、提示）与「更多选项」（仅精确规则、观察模式、关键词、常用规则优先、静音、时间口径）；低频项默认收起。\n- **设置页「关于与更新」**从 8 行收到 4 行：更新中心（含当前版本）、自动检查、仅 Wi-Fi、自定义更新源；检查 / 安装 / 发布页都在更新中心里。\n- **二级页**隐藏底部导航栏——顶部已有返回条，不再同屏两套导航，内容区多出约 59dp；页面底部留白同步从 118dp 收到 32dp。\n- **二级页标题**去掉重复的 34sp 大标题与眉题，只保留顶部返回条标题 + 一句说明。\n\n### 交互与文案\n\n- **二级页返回栈**：设置 → 更新中心 → 规则库这类深链，返回时逐层退回上一级，不再直接跳回 Tab。旋转后栈也能恢复。\n- **跳过气泡**从「angela吃掉了广告」改为「净屏已跳过广告」，「angela挡住了误跳转」改为「净屏已拦截误跳转」。\n- 统计文案统一为「今日已跳过 / 累计跳过」，不再混用「吃掉」。\n- 开关行的读屏描述补上「已开启 / 已关闭」，开关隐藏后 TalkBack 仍能播报状态。\n- 复制失败的提示不再暴露异常类名，统一为「复制失败，请重试」。\n\n### 代码与性能\n\n- 删除无引用代码：`Keywords` 的两张未用关键词表、`Analytics.badCount/savedText/human`、`ClickGuard.focusedInputText`、`MiniBar.setColors`、`Ui.isDark`、`Prefs` 六个未用方法及旧键 `KEY_AGGRESSIVE`。\n- 合并重复实现：首页与详情页的时间格式化抽到 `Text.hhmm`，四处剪贴板复制抽到 `Ui.copy`。\n- 首页轮询从固定 1.5 秒改为「有暂停倒计时时 1 秒，否则 3 秒」；跳过次数仍由 SharedPreferences 变化即时触发，不会延迟。\n- 首页「最近跳过」只读 1 条事件，不再每轮重建 3 行列表。\n\n### 验证\n\n- 桌面自测 368 项通过，HitTest 闸门通过，规则库 3206 条。\n- 模拟器：默认档测试页 1 秒内命中「跳过广告」；输入框聚焦时 0 点击；二级页确认无底部导航；设置页折叠区分组正确。\n- APK 约 350 KB，versionCode 20411，签名证书 SHA-256 与既有版本一致，2.4.0–2.4.10 可直接覆盖安装。\n",
     "apks":  [
-                 "https://gitee.com/moyang404/jingping/raw/main/JingPing-2.4.10.apk",
-                 "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.10.apk",
-                 "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.10.apk",
+                 "https://gitee.com/moyang404/jingping/raw/main/JingPing-2.4.11.apk",
+                 "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.11.apk",
+                 "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.11.apk",
                  "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
                  "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
                  "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
                  "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
              ],
     "apks_extra":  [
-                       "https://jsd.onmicrosoft.cn/gh/MY-moss/jingping@main/apk/JingPing-2.4.10.apk",
-                       "https://gh.llkk.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.10/JingPing.apk",
-                       "https://ghproxy.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.10/JingPing.apk"
+                       "https://jsd.onmicrosoft.cn/gh/MY-moss/jingping@main/apk/JingPing-2.4.11.apk",
+                       "https://gh.llkk.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.11/JingPing.apk",
+                       "https://ghproxy.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.11/JingPing.apk"
                    ]
 }

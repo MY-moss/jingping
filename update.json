@@ -1,22 +1,22 @@
 {
-    "versionCode":  20413,
-    "versionName":  "2.4.13",
-    "tag":  "v2.4.13",
+    "versionCode":  20414,
+    "versionName":  "2.4.14",
+    "tag":  "v2.4.14",
     "size":  358430,
-    "sha256":  "4c2a02b8b76d7dc766c417db89d8e2e8068e867cb6be4bafdc8d6bedd6844018",
-    "notes":  "## 净屏 2.4.13\n\n### 拼音搜索\n\n- 应用页和白名单选择页现在认识拼音：输入 `douyin` 能搜到「抖音」，输入 `dy` 能搜到「抖音」，输入 `xhs` 能搜到「小红书」。\n- 用系统自带的 ICU 转写（`Han-Latin`），不打包几万字的拼音字典，APK 体积不变；转写失败时自动退回原名 / 包名匹配，不影响原有搜索。\n- 首字母只匹配前缀，全拼可以匹配任意位置：`wx` 找微信，`ge` 也能找到红果。\n- 输入框提示改为「搜索应用名、包名或拼音」。\n\n### 可访问性\n\n- 首页 7 天柱状图与环图的文字改为跟随系统字号，封顶 1.3 倍；大字号下柱状图标签和数字不再固定不变。\n- 底部导航每一项的触控区补到 48dp（原来约 45dp）。\n\n### 说明\n\n- 旋转/折叠屏后的 Tab、二级页返回栈和滚动位置沿用既有的固定 ID 方案，本次实测正常；平板/横屏的 620dp 居中宽度也保持不变。\n- 本次没有改动界面配色与布局，预览图沿用 2.4.12。\n\n### 验证\n\n- 桌面自测 368 项通过，HitTest 闸门通过，规则库 3206 条。\n- 模拟器：应用页输入 `jp` 只留下「净屏」「净屏测试广告」两个中文应用，英文应用全部被过滤；1.3 倍字号下周图标签与数字完整显示；旋转后首页滚动位置保留。\n- APK 约 350 KB，versionCode 20413，签名证书 SHA-256 与既有版本一致，可直接覆盖安装。\n",
+    "sha256":  "a7f58a56d703944a132bfa9ee691b970d9980fbf81e478527ed0de8490694a9c",
+    "notes":  "## 净屏 2.4.14\n\n### 灰阶\n\n- 浅色主题拆成三档灰：正文 `#1C1C1E`、次要 `#5A5A5E`（6.1:1）、更次要 `#6C6C70`（4.7:1）。此前次要和更次要都是 `#6C6C70`，说明文字与提示文字没有层级差。\n- 深色主题本来就是三档，不变。\n\n### 应用页加载态\n\n- 应用页在枚举安装包时，搜索框下方显示一条 2dp 的蓝色进度条；加载完成后自动消失。\n- 列表里不再重复显示「正在读取应用列表…」，只保留顶部摘要那一行，页面不会同时出现两句一样的提示。\n\n### 发布流程\n\n- `release.ps1` 增加收尾步骤：自动更新 Gitee 镜像仓（APK、update.json、README、preview.png）与 GitHub 发布页 README / 预览图；任一步失败只告警，不影响已完成的 GitHub Release。\n- 以后发版只需要 `release.ps1 -Version X.Y.Z -NotesFile build/notes-X.Y.Z.md`，不再手动推 Gitee 和上传 README。\n\n### 验证\n\n- 桌面自测 368 项通过，HitTest 闸门通过，规则库 3206 条。\n- 模拟器：应用页加载中能看到细进度条，加载完成后消失；列表描述文字的灰阶比上一版更深、与正文区分更清楚。\n- APK 约 350 KB，versionCode 20414，签名证书 SHA-256 与既有版本一致，可直接覆盖安装。\n",
     "apks":  [
-                 "https://gitee.com/moyang404/jingping/raw/main/JingPing-2.4.13.apk",
-                 "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.13.apk",
-                 "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.13.apk",
+                 "https://gitee.com/moyang404/jingping/raw/main/JingPing-2.4.14.apk",
+                 "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.14.apk",
+                 "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.14.apk",
                  "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
                  "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
                  "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
                  "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
              ],
     "apks_extra":  [
-                       "https://jsd.onmicrosoft.cn/gh/MY-moss/jingping@main/apk/JingPing-2.4.13.apk",
-                       "https://gh.llkk.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.13/JingPing.apk",
-                       "https://ghproxy.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.13/JingPing.apk"
+                       "https://jsd.onmicrosoft.cn/gh/MY-moss/jingping@main/apk/JingPing-2.4.14.apk",
+                       "https://gh.llkk.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.14/JingPing.apk",
+                       "https://ghproxy.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.14/JingPing.apk"
                    ]
 }

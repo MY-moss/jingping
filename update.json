@@ -1,22 +1,22 @@
 {
-    "versionCode":  20412,
-    "versionName":  "2.4.12",
-    "tag":  "v2.4.12",
+    "versionCode":  20413,
+    "versionName":  "2.4.13",
+    "tag":  "v2.4.13",
     "size":  358430,
-    "sha256":  "02820f6773e51ab3c64166434888e976b92f563739687ce3f3c04f5749d29863",
-    "notes":  "",
+    "sha256":  "4c2a02b8b76d7dc766c417db89d8e2e8068e867cb6be4bafdc8d6bedd6844018",
+    "notes":  "## 净屏 2.4.13\n\n### 拼音搜索\n\n- 应用页和白名单选择页现在认识拼音：输入 `douyin` 能搜到「抖音」，输入 `dy` 能搜到「抖音」，输入 `xhs` 能搜到「小红书」。\n- 用系统自带的 ICU 转写（`Han-Latin`），不打包几万字的拼音字典，APK 体积不变；转写失败时自动退回原名 / 包名匹配，不影响原有搜索。\n- 首字母只匹配前缀，全拼可以匹配任意位置：`wx` 找微信，`ge` 也能找到红果。\n- 输入框提示改为「搜索应用名、包名或拼音」。\n\n### 可访问性\n\n- 首页 7 天柱状图与环图的文字改为跟随系统字号，封顶 1.3 倍；大字号下柱状图标签和数字不再固定不变。\n- 底部导航每一项的触控区补到 48dp（原来约 45dp）。\n\n### 说明\n\n- 旋转/折叠屏后的 Tab、二级页返回栈和滚动位置沿用既有的固定 ID 方案，本次实测正常；平板/横屏的 620dp 居中宽度也保持不变。\n- 本次没有改动界面配色与布局，预览图沿用 2.4.12。\n\n### 验证\n\n- 桌面自测 368 项通过，HitTest 闸门通过，规则库 3206 条。\n- 模拟器：应用页输入 `jp` 只留下「净屏」「净屏测试广告」两个中文应用，英文应用全部被过滤；1.3 倍字号下周图标签与数字完整显示；旋转后首页滚动位置保留。\n- APK 约 350 KB，versionCode 20413，签名证书 SHA-256 与既有版本一致，可直接覆盖安装。\n",
     "apks":  [
-                 "https://gitee.com/moyang404/jingping/raw/main/JingPing-2.4.12.apk",
-                 "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.12.apk",
-                 "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.12.apk",
+                 "https://gitee.com/moyang404/jingping/raw/main/JingPing-2.4.13.apk",
+                 "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.13.apk",
+                 "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.13.apk",
                  "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
                  "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
                  "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
                  "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
              ],
     "apks_extra":  [
-                       "https://jsd.onmicrosoft.cn/gh/MY-moss/jingping@main/apk/JingPing-2.4.12.apk",
-                       "https://gh.llkk.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.12/JingPing.apk",
-                       "https://ghproxy.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.12/JingPing.apk"
+                       "https://jsd.onmicrosoft.cn/gh/MY-moss/jingping@main/apk/JingPing-2.4.13.apk",
+                       "https://gh.llkk.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.13/JingPing.apk",
+                       "https://ghproxy.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.13/JingPing.apk"
                    ]
 }

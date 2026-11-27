@@ -1,23 +1,23 @@
 {
-  "versionCode": 20418,
-  "versionName": "2.4.18",
-  "tag": "v2.4.18",
-  "size": 362526,
-  "sha256": "3c616445aef780a735896ddfcf5e57984b6625b9d9c0a9e09e767e28e87adf90",
-  "notes": "- **2.4.18 · 减少误点**\n  - 通用识别和文字兜底只点击命中的可点击控件，列表内容需要明确的广告控件 ID。点前重新核验控件所属窗口、位置和文案。\n  - 标准档在真实开屏倒计时、明确的广告按钮文案或控件附近有广告证据时放行。普通「跳过」、右上角位置和页面别处的广告 ID 单独都不构成证据。\n  - 修复规则过滤可能丢失必需条件或改变点击目标的问题。仅限定页面、模糊 ID 或包含泛文本备选项的规则会继续核验广告证据。\n  - 只有无障碍描述的按钮可在较大的页面中正常确认跳过，前提是系统查询能在点击前定位该按钮。\r\n",
+  "versionCode": 20419,
+  "versionName": "2.4.19",
+  "tag": "v2.4.19",
+  "size": 358542,
+  "sha256": "d1e171be493755ca794f2b7f7223780f75ea8ada6954f68f50fd26042c020553",
+  "notes": "- **2.4.19 · 界面重设计**\n  - 配色改为暖白、松绿和独立深色主题，统一标题、分组、开关和底部导航。\n  - 首页从多套布局合为一个页面，集中展示运行状态、暂停、近七天统计和运行记录。应用页把列表、搜索与筛选重新排在一起。\n  - 「我的」显示识别设置、运行记录和更新中心，其他工具按需展开。更新来源与下载偏好集中到更新中心。\n  - 应用列表在旋转后保留搜索、筛选和排序。恢复备份后，识别设置和更新中心会立即显示恢复后的开关状态。\r\n",
   "apks": [
-    "https://gitee.com/moyang404/jingping/raw/main/JingPing-2.4.18.apk",
-    "https://raw.githubusercontent.com/MY-moss/jingping/main/apk/JingPing-2.4.18.apk",
-    "https://github.com/MY-moss/jingping/releases/download/v2.4.18/JingPing-2.4.18.apk",
-    "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.18.apk",
-    "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.18.apk",
-    "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/download/v2.4.18/JingPing-2.4.18.apk",
-    "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/download/v2.4.18/JingPing-2.4.18.apk",
-    "https://ghfast.top/https://github.com/MY-moss/jingping/releases/download/v2.4.18/JingPing-2.4.18.apk"
+    "https://gitee.com/moyang404/jingping/raw/main/JingPing-2.4.19.apk",
+    "https://raw.githubusercontent.com/MY-moss/jingping/main/apk/JingPing-2.4.19.apk",
+    "https://github.com/MY-moss/jingping/releases/download/v2.4.19/JingPing-2.4.19.apk",
+    "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.19.apk",
+    "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.19.apk",
+    "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/download/v2.4.19/JingPing-2.4.19.apk",
+    "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/download/v2.4.19/JingPing-2.4.19.apk",
+    "https://ghfast.top/https://github.com/MY-moss/jingping/releases/download/v2.4.19/JingPing-2.4.19.apk"
   ],
   "apks_extra": [
-    "https://jsd.onmicrosoft.cn/gh/MY-moss/jingping@main/apk/JingPing-2.4.18.apk",
-    "https://gh.llkk.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.18/JingPing-2.4.18.apk",
-    "https://ghproxy.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.18/JingPing-2.4.18.apk"
+    "https://jsd.onmicrosoft.cn/gh/MY-moss/jingping@main/apk/JingPing-2.4.19.apk",
+    "https://gh.llkk.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.19/JingPing-2.4.19.apk",
+    "https://ghproxy.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.19/JingPing-2.4.19.apk"
   ]
 }

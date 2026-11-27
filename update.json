@@ -1,22 +1,23 @@
 {
-    "versionCode":  20414,
-    "versionName":  "2.4.14",
-    "tag":  "v2.4.14",
-    "size":  358430,
-    "sha256":  "a7f58a56d703944a132bfa9ee691b970d9980fbf81e478527ed0de8490694a9c",
-    "notes":  "## 净屏 2.4.14\n\n### 灰阶\n\n- 浅色主题拆成三档灰：正文 `#1C1C1E`、次要 `#5A5A5E`（6.1:1）、更次要 `#6C6C70`（4.7:1）。此前次要和更次要都是 `#6C6C70`，说明文字与提示文字没有层级差。\n- 深色主题本来就是三档，不变。\n\n### 应用页加载态\n\n- 应用页在枚举安装包时，搜索框下方显示一条 2dp 的蓝色进度条；加载完成后自动消失。\n- 列表里不再重复显示「正在读取应用列表…」，只保留顶部摘要那一行，页面不会同时出现两句一样的提示。\n\n### 发布流程\n\n- `release.ps1` 增加收尾步骤：自动更新 Gitee 镜像仓（APK、update.json、README、preview.png）与 GitHub 发布页 README / 预览图；任一步失败只告警，不影响已完成的 GitHub Release。\n- 以后发版只需要 `release.ps1 -Version X.Y.Z -NotesFile build/notes-X.Y.Z.md`，不再手动推 Gitee 和上传 README。\n\n### 验证\n\n- 桌面自测 368 项通过，HitTest 闸门通过，规则库 3206 条。\n- 模拟器：应用页加载中能看到细进度条，加载完成后消失；列表描述文字的灰阶比上一版更深、与正文区分更清楚。\n- APK 约 350 KB，versionCode 20414，签名证书 SHA-256 与既有版本一致，可直接覆盖安装。\n",
-    "apks":  [
-                 "https://gitee.com/moyang404/jingping/raw/main/JingPing-2.4.14.apk",
-                 "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.14.apk",
-                 "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.14.apk",
-                 "https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-                 "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-                 "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk",
-                 "https://ghfast.top/https://github.com/MY-moss/jingping/releases/latest/download/JingPing.apk"
-             ],
-    "apks_extra":  [
-                       "https://jsd.onmicrosoft.cn/gh/MY-moss/jingping@main/apk/JingPing-2.4.14.apk",
-                       "https://gh.llkk.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.14/JingPing.apk",
-                       "https://ghproxy.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.14/JingPing.apk"
-                   ]
+  "versionCode": 20417,
+  "versionName": "2.4.17",
+  "tag": "v2.4.17",
+  "size": 362526,
+  "sha256": "3c069f51ec00a94e8fa3548530db56987108da3fae8b072ef7dfaa043d9022a3",
+  "notes": "- **2.4.17 · 观察与暂停保护**\n  - 自动点击、区域兜底和返回保护共用派发状态检查。暂停、关闭或切换观察模式时，之前排队的操作失效。\n  - 跳过确认基于原页面的广告目标消失。页面切换、目标无法重新核实或缺少节点证据时，保留未确认记录。\n  - 修复关闭通知保活后，使用通知暂停或恢复可能导致的崩溃。\n  - GitHub 和 Gitee 先校验同一份签名 APK，再更新各自的在线清单。\r\n",
+  "apks": [
+    "https://gitee.com/moyang404/jingping/raw/main/JingPing-2.4.17.apk",
+    "https://raw.githubusercontent.com/MY-moss/jingping/main/apk/JingPing-2.4.17.apk",
+    "https://github.com/MY-moss/jingping/releases/download/v2.4.17/JingPing-2.4.17.apk",
+    "https://cdn.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.17.apk",
+    "https://fastly.jsdelivr.net/gh/MY-moss/jingping@main/apk/JingPing-2.4.17.apk",
+    "https://gh-proxy.com/https://github.com/MY-moss/jingping/releases/download/v2.4.17/JingPing-2.4.17.apk",
+    "https://ghproxy.net/https://github.com/MY-moss/jingping/releases/download/v2.4.17/JingPing-2.4.17.apk",
+    "https://ghfast.top/https://github.com/MY-moss/jingping/releases/download/v2.4.17/JingPing-2.4.17.apk"
+  ],
+  "apks_extra": [
+    "https://jsd.onmicrosoft.cn/gh/MY-moss/jingping@main/apk/JingPing-2.4.17.apk",
+    "https://gh.llkk.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.17/JingPing-2.4.17.apk",
+    "https://ghproxy.cc/https://github.com/MY-moss/jingping/releases/download/v2.4.17/JingPing-2.4.17.apk"
+  ]
 }
